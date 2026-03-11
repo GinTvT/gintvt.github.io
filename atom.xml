@@ -31,6 +31,21 @@
       <name>Gin</name>
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="代码审计" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="代码审计" scheme="https://gintvt.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    <id>https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/"/>
+    <published>2025-05-23T05:55:07.000Z</published>
+    <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
+    <title>.NET审计记录</title>
+    <updated>2026-03-11T08:08:18.499Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Gin</name>
+    </author>
+    <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="开发" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91/"/>
     <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
@@ -39,7 +54,7 @@
     <published>2023-05-12T05:55:07.000Z</published>
     <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
     <title>ShellCode开发</title>
-    <updated>2026-03-11T07:17:30.515Z</updated>
+    <updated>2026-03-11T08:08:39.459Z</updated>
   </entry>
   <entry>
     <author>
@@ -56,6 +71,6 @@
     <published>2023-03-10T19:55:07.000Z</published>
     <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
     <title>Web 安全入门指南</title>
-    <updated>2026-03-11T03:47:21.811Z</updated>
+    <updated>2026-03-11T08:05:39.397Z</updated>
   </entry>
 </feed>

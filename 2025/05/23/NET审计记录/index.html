@@ -11,7 +11,7 @@
     
     
     
-    <meta name="keywords" content="Life, ARIA, Hexo">
+    <meta name="keywords" content="Web 安全，渗透测试，网络安全，入门教程">
     
     
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
@@ -153,7 +153,7 @@
     </script>
     
     <script defer type="text/javascript" src="/js/custom.js"></script>
-    <title>分類: Web 安全 | GinTvT-清酒温茶 - Security Research</title>
+    <title>.NET审计记录 | GinTvT-清酒温茶 - Security Research</title>
   <meta name="generator" content="Hexo 8.1.1"></head>
   <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
     
@@ -195,21 +195,100 @@
         <div class="main-container">
           <div class="content">
             
-<div id="category" class="category page">
-  <h1 class="page-title">Web 安全</h1>
+<div id="post" class="page">
   
   <article class="article post card" itemscope itemtype="http://schema.org/Article">
-    <header id="post-header" class="post-header">
-      <h1 class="post-title-simple" itemprop="name headline">
-        <a class="post-title-link post-title-link-external" href="/2023/03/11/Web-%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" itemprop="url">Web 安全入门指南</a>
-      </h1>
-      
-      <span class="post-date">
-        <time title="post-date" itemprop="dateCreated datePublished" datetime="2023-03-11T03:55:07+08:00">03-11</time>
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Gin">
+       <meta itemprop="description" content="路的尽头终会是温柔的月光">
+       <meta itemprop="image" content="/images/avatar.jpg">
       </span>
-      
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GinTvT-清酒温茶">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">.NET审计记录</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-05-23T13:55:07+08:00">2025-05-23 13:55:07</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">代码审计</span></a></span>
+        </span>
+        
+        
+      </div>
     </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="NET审计记录"><a href="#NET审计记录" class="headerlink" title=".NET审计记录"></a>.NET审计记录</h1><p>最近也是在复健一下代码审计, 顺便记录一下思路</p>
+<h2 id="审计准备"><a href="#审计准备" class="headerlink" title="审计准备"></a>审计准备</h2><p>一个正常人的脑子</p>
+<p>一个正常人用的电脑</p>
+<p>一套net代码</p>
+<p>审计工具:dnSpy:<a target="_blank" rel="noopener" href="https://github.com/dnSpy/dnSpy">https://github.com/dnSpy/dnSpy</a></p>
+<h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><p>我们用一个大佬打下来的某套源码来审计, 该系统如果出洞也是通用了()</p>
+<p><strong>第一步:看眼路由</strong></p>
+<p>简单用登录框看一眼路由结构</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152250817.png" alt="image-20260311152250749"></p>
+<p>抓包看路径</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152336020.png" alt="image-20260311152335976"></p>
+<p>&#x2F;Home&#x2F;newLogin 根据这个路径, 没有像login.aspx的文件拓展名, 可以高度确定网站是一个MVC架构, 且存在一个集中的controller </p>
+<p>Home是controller, newLogin是方法 </p>
+<p>所以现在, 我们回到源码中去找他集中的controller</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152427426.png" alt="image-20260311152427374"></p>
+<p>根据他的dll来猜测, system应该是系统的东西, 应该跟controller没什么关系, 其他的一些命名也不是很符合我们要找的controller, 看到JuCheap, 感觉就是他了, 点开JuCheap后, 果然我们发现了controller</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152458355.png" alt="image-20260311152458321"></p>
+<p>依照登录口的路由&#x2F;Home&#x2F;newLogin, 我们可以在controller中找到他</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152534045.png" alt="image-20260311152534002"></p>
+<p>既然到这里, 我们再看看他下面的一些东西, 其中有一个叫做Filters的, 这个就是过滤器, 如果方法添加了过滤器, 那就可能没办法从前台发起攻击了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152600014.png" alt="image-20260311152559978"></p>
+<p>当然也不是绝对, 万一他的过滤器压根就没写东西呢, 别不信, 真有这种</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152620431.png" alt="image-20260311152620400"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152633177.png" alt="image-20260311152633150"></p>
+<p>这套代码就写的有点东西, 审计难度也大(其实就是我菜), 接下来我们看一套难度没这么大的</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><p>这回也是拿一套非MVC架构的来审 路径中有.aspx, 这就是非常典型的Web Forms, 这种结构就是单纯的物理文件了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152724626.png" alt="image-20260311152724531"></p>
+<p>我们直接跳过审计阶段来到漏洞点, 这里接收了参数到DleteTemp中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152752753.png" alt="image-20260311152752690"></p>
+<hr>
+<p><em>GinTvT</em></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fas fa-tags"></i>学习笔记</a>
+        
+        <a class="post-tag button" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag"><i class="fas fa-tags"></i>代码审计</a>
+        
+      </div>
+      
+    </footer>
   </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2023/05/12/shellcode%E5%BC%80%E5%8F%91/" rel="next" title="ShellCode开发"><i class="fas fa-angle-left"></i><span class="nav-title">ShellCode开发</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/" rel="prev" title="AI Pentest Agent 架构分析报告"><span class="nav-title">AI Pentest Agent 架构分析报告</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
   
   
 </div>
@@ -256,6 +335,17 @@
 
 
   <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目錄</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95"><span class="toc-text">.NET审计记录</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%A1%E8%AE%A1%E5%87%86%E5%A4%87"><span class="toc-text">审计准备</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%A1%88%E4%BE%8B1"><span class="toc-text">案例1</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%A1%88%E4%BE%8B2"><span class="toc-text">案例2</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
     
     
     <hr>

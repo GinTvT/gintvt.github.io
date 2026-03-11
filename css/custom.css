@@ -1,0 +1,293 @@
+/* 文章封面图样式 */
+.post-cover {
+  margin: -1em -1em 1em -1em;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+}
+
+.post-cover-link {
+  display: block;
+  width: 100%;
+}
+
+.post-cover-img {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-cover-link:hover .post-cover-img {
+  transform: scale(1.05);
+}
+
+/* 强制白色背景 - 最高优先级 */
+html, body {
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* 折纸风格装饰 - 穿过文章 */
+.paper-decoration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* 左侧长条折纸 - 穿过文章 */
+.paper-left {
+  position: absolute;
+  top: 20%;
+  left: -100px;
+  width: 400px;
+  height: 600px;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.6) 0%, 
+    rgba(255, 142, 142, 0.5) 30%,
+    rgba(255, 200, 150, 0.4) 60%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(0% 0%, 60% 10%, 80% 40%, 50% 70%, 70% 100%, 0% 90%);
+  animation: paperFloatLeft 25s ease-in-out infinite;
+}
+
+.paper-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 150, 150, 0.5) 0%, 
+    rgba(255, 180, 120, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(0% 20%, 40% 30%, 60% 60%, 30% 80%, 50% 100%, 0% 100%);
+  animation: paperFloatLeft 20s ease-in-out infinite reverse;
+}
+
+/* 右侧长条折纸 - 穿过文章 */
+.paper-right {
+  position: absolute;
+  top: 30%;
+  right: -150px;
+  width: 450px;
+  height: 700px;
+  background: linear-gradient(225deg, 
+    rgba(100, 149, 237, 0.6) 0%, 
+    rgba(135, 206, 250, 0.5) 30%,
+    rgba(200, 220, 255, 0.4) 60%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(100% 0%, 40% 15%, 20% 50%, 50% 75%, 30% 100%, 100% 90%);
+  animation: paperFloatRight 22s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+.paper-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(225deg, 
+    rgba(150, 180, 255, 0.5) 0%, 
+    rgba(180, 200, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(100% 25%, 60% 35%, 40% 65%, 70% 85%, 50% 100%, 100% 100%);
+  animation: paperFloatRight 18s ease-in-out infinite reverse;
+}
+
+/* 中间横穿折纸 */
+.paper-middle {
+  position: absolute;
+  top: 60%;
+  left: -200px;
+  width: 150%;
+  height: 300px;
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 183, 178, 0.5) 20%,
+    rgba(255, 218, 193, 0.45) 50%,
+    rgba(226, 240, 203, 0.4) 80%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(0% 40%, 30% 20%, 50% 50%, 70% 30%, 100% 60%, 100% 80%, 70% 60%, 50% 90%, 30% 70%, 0% 80%);
+  animation: paperFloatMiddle 30s ease-in-out infinite;
+}
+
+/* 顶部装饰 */
+.paper-top {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(180deg, 
+    rgba(255, 182, 193, 0.4) 0%, 
+    rgba(255, 218, 185, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(0% 0%, 25% 60%, 50% 30%, 75% 50%, 100% 20%, 100% 0%);
+  animation: paperTopFloat 20s ease-in-out infinite;
+}
+
+/* 左下角装饰 */
+.paper-bottom-left {
+  position: absolute;
+  bottom: -100px;
+  left: -100px;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(45deg, 
+    rgba(221, 160, 221, 0.6) 0%, 
+    rgba(255, 182, 193, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(0% 50%, 30% 40%, 50% 60%, 40% 80%, 60% 100%, 0% 100%);
+  animation: paperFloatBottom 18s ease-in-out infinite;
+}
+
+/* 右下角装饰 */
+.paper-bottom-right {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: linear-gradient(315deg, 
+    rgba(135, 206, 250, 0.6) 0%, 
+    rgba(176, 224, 230, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%);
+  clip-path: polygon(100% 40%, 70% 50%, 50% 30%, 60% 10%, 40% 0%, 100% 0%);
+  animation: paperFloatBottom 22s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+/* 折纸浮动动画 - 左侧 */
+@keyframes paperFloatLeft {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-10px, 15px) rotate(-1deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(-15px, -10px) rotate(1.5deg);
+    opacity: 1;
+  }
+}
+
+/* 折纸浮动动画 - 右侧 */
+@keyframes paperFloatRight {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(-15px, 20px) rotate(-2deg);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(10px, -15px) rotate(1deg);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate(15px, 10px) rotate(-1.5deg);
+    opacity: 1;
+  }
+}
+
+/* 折纸浮动动画 - 中间 */
+@keyframes paperFloatMiddle {
+  0%, 100% {
+    transform: translateX(0) scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50px) scaleY(1.1);
+    opacity: 0.9;
+  }
+}
+
+/* 顶部浮动动画 */
+@keyframes paperTopFloat {
+  0%, 100% {
+    transform: translateY(0) scaleX(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(20px) scaleX(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* 底部浮动动画 */
+@keyframes paperFloatBottom {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.8;
+  }
+  33% {
+    transform: translate(10px, -10px) rotate(2deg);
+    opacity: 1;
+  }
+  66% {
+    transform: translate(-5px, 5px) rotate(-1deg);
+    opacity: 0.9;
+  }
+}
+
+/* 主内容区域 */
+.main-container, .container {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+/* 文章卡片 - 半透明背景 */
+.post, .post-block {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 侧边栏 */
+.sidebar {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* 覆盖主题默认背景 */
+.wrapper, .main, .content {
+  background: transparent !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .post-cover {
+    margin: -0.5em -0.5em 0.5em -0.5em;
+  }
+  
+  .post-cover-img {
+    max-height: 250px;
+  }
+  
+  .paper-decoration {
+    display: none;
+  }
+}

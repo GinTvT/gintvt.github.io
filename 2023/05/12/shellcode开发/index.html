@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FF0000">
+    <meta name="msapplication-TileColor" content="#FF0000">
+    
+    
+    
+    
+    <meta name="keywords" content="Web 安全，渗透测试，网络安全，入门教程">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+    
+    
+    <link rel="mask-icon" href="/images/favicon.jpg" color="#FF0000">
+    
+    
+    
+    
+    <link rel="alternate" href="/atom.xml" title="GinTvT-清酒温茶" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>ShellCode开发 | GinTvT-清酒温茶 - Security Research</title>
+  <meta name="generator" content="Hexo 8.1.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #FF0000;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">GinTvT-清酒温茶</a></h1>
+        <h2 class="subtitle">Security Research</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/12/shellcode%E5%BC%80%E5%8F%91/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Gin">
+       <meta itemprop="description" content="路的尽头终会是温柔的月光">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GinTvT-清酒温茶">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">ShellCode开发</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2023-05-12T13:55:07+08:00">2023-05-12 13:55:07</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="ShellCode开发"><a href="#ShellCode开发" class="headerlink" title="ShellCode开发"></a>ShellCode开发</h1><p>1.基本没人教的花活，网上会有文章，但是不会解释原理。这玩意其实难度不高，就是要注意的东西多。</p>
+<p>2.shellcode开发其实有很多办法，纯汇编，C和汇编又或者纯C++。（像我这种纯FW只能纯C++了）</p>
+<h2 id="开发PIC-shellcode注意事项"><a href="#开发PIC-shellcode注意事项" class="headerlink" title="开发PIC shellcode注意事项"></a>开发PIC shellcode注意事项</h2><p>1.不能使用全局变量，或者用static修饰的变量·使用API时必须动态调用(GetProAddress)·确保调自定义shellcode入口点</p>
+<p>2.·用API之前已经加载了与之对应的DLL</p>
+<p>3.·所有字符串都必须要用字符串数组的方式替代</p>
+<p>·属性——优化——O1&#x2F;Ob2&#x2F;Oi&#x2F;Os&#x2F;Oy&#x2F;GL·</p>
+<p>属性——代码生成———MT&#x2F;GS-&#x2F;GY·</p>
+<p>属性——链接器——&#x2F;INCREMENTAL:NO·</p>
+<p>属性——链接器——调试——否</p>
+<p>·属性——链接器——高级——入口点（自定义)</p>
+<p>所有字符串都要用类似的格式去定义 unsigned char szUser32[] &#x3D; { ‘u’,’s’,’e’,’r’,’3’,’2’,’.’,’d’,’l’,’l’,0 };防止破坏堆栈平衡</p>
+<p>先看代码吧，代码是删减版只有模板</p>
+<p>一个头文件comm.h</p>
+<figure class="hljs highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs scss"><span class="hljs-selector-id">#include</span> &amp;lt;windows<span class="hljs-selector-class">.h</span>&amp;gt;<br><span class="hljs-comment">//这个其实没什么好说的这个头文件主要是在这边定义函数指针</span><br>typedef <span class="hljs-built_in">FARPROC</span>(WINAPI* FN_GetProcAddress)(<br>    _In_ HMODULE hModule,<br>    _In_ LPCSTR lpProcName<br>    );<br><br>typedef <span class="hljs-built_in">HMODULE</span>(WINAPI* FN_LoadLibraryA)(<br>    _In_ LPCSTR lpLibFileName<br>    );<br><br>typedef <span class="hljs-built_in">int</span>(WINAPI* FN_MessageBoxA)(<br>    _In_opt_ HWND hWnd,<br>    _In_opt_ LPCSTR lpText,<br>    _In_opt_ LPCSTR lpCaption,<br>    _In_ UINT uType);<br><br><br>typedef <span class="hljs-built_in">UINT</span>(WINAPI* FN_WinExec)(<br>    LPCSTR lpCmdLine,<br>    UINT   uCmdShow<br>    );<br><br>typedef <span class="hljs-built_in">HANDLE</span>(WINAPI * FN_CreateFileMappingW)(<br>        _In_     HANDLE hFile,<br>        _In_opt_ LPSECURITY_ATTRIBUTES lpFileMappingAttributes,<br>        _In_     DWORD flProtect,<br>        _In_     DWORD dwMaximumSizeHigh,<br>        _In_     DWORD dwMaximumSizeLow,<br>        _In_opt_ LPCWSTR lpName<br>        );<br><br><br>typedef struct tagApiInterface &#123;<br>    FN_GetProcAddress pfnGetProcAddress;<br>    FN_LoadLibraryA pfnLoadLibrary;<br>    FN_MessageBoxA pfnMessageBoxA;<br>    FN_WinExec pfnWinExec;<br>    FN_CreateFileMappingW pfnCreateFileMappingW;<br>&#125;APIINTERFACE, * PAPIINTERFACE;<br></code></pre></td></tr></table></figure>
+
+<p>然后是function.h，一般存放一些自实现的函数，我把我的删掉了</p>
+<figure class="hljs highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stan"><span class="hljs-comment">#pragma once</span><br><span class="hljs-meta">#include &quot;<span class="hljs-string">comm.h</span>&quot;</span><br><span class="hljs-meta">#include &amp;<span class="hljs-string">lt</span>;<span class="hljs-string">windows.h</span>&amp;<span class="hljs-string">gt</span>;</span><br><span class="hljs-meta">#include &amp;<span class="hljs-string">lt</span>;<span class="hljs-string">iostream</span>&amp;<span class="hljs-string">gt</span>;</span><br><span class="hljs-meta">#include &amp;<span class="hljs-string">lt</span>;<span class="hljs-string">vector</span>&amp;<span class="hljs-string">gt</span>;</span><br><span class="hljs-meta">#include &amp;<span class="hljs-string">lt</span>;<span class="hljs-string">cstdint</span>&amp;<span class="hljs-string">gt</span>;</span><br>using namespace std;<br><br></code></pre></td></tr></table></figure>
+
+<p>最后是最重要的，注意看注释。</p>
+<p>大概的思路：通过PEB（不知道是啥玩意的自己去补基础）去获取Kernel32.dll的地址，从Kernel32.dll中获取导出函数GetProcAddress，再通过GetProcAddress函数获取LoadLibraryA函数。就可以实现从任意DLL中获取任意导出函数进行编程。</p>
+<figure class="hljs highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;comm.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> &amp;lt;winternl.h&amp;gt;</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;function.h&quot;</span></span><br><br><br><span class="hljs-comment">// 获取Kernel32.dll模块的基地址</span><br>ULONGLONG GetModuleKernel64()<br><span class="hljs-punctuation">&#123;</span><br>    ULONGLONG dwKernel32A<span class="hljs-attr">ddr</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">;</span><br><br>    <span class="hljs-comment">// 获取TEB的地址</span><br>    _TEB* pT<span class="hljs-attr">eb</span> <span class="hljs-operator">=</span> NtCurrentTeb()<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取PEB的地址</span><br>    PULONGLONG pP<span class="hljs-attr">eb</span> <span class="hljs-operator">=</span> (PULONGLONG) * (PULONGLONG)((ULONGLONG)pTeb + <span class="hljs-number">0x60</span>)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取PEB_LDR_DATA结构的地址</span><br>    PULONGLONG pL<span class="hljs-attr">dr</span> <span class="hljs-operator">=</span> (PULONGLONG) * (PULONGLONG)((ULONGLONG)pPeb + <span class="hljs-number">0x18</span>)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 模块初始化链表的头指针InInitializationOrderModuleList</span><br>    PULONGLONG pInLoadOrderModuleL<span class="hljs-attr">ist</span> <span class="hljs-operator">=</span> (PULONGLONG)((ULONGLONG)pLdr + <span class="hljs-number">0x10</span>)<span class="hljs-punctuation">;</span><br><br>    <span class="hljs-comment">// 获取链表中第一个模块信息，exe模块</span><br>    PULONGLONG pModuleE<span class="hljs-attr">xe</span> <span class="hljs-operator">=</span> (PULONGLONG)*pInLoadOrderModuleL<span class="hljs-attr">ist</span><span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">//printf(&quot;EXE Base = &amp;gt; %X \n&quot;, pModuleExe[6]);</span><br><br>    <span class="hljs-comment">// 获取链表中第二个模块信息，ntdll模块</span><br>    PULONGLONG pModuleN<span class="hljs-attr">tdll</span> <span class="hljs-operator">=</span> (PULONGLONG)*pModuleE<span class="hljs-attr">xe</span><span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">//printf(&quot;Ntdll Base = &amp;gt; %X \n&quot;, pModuleNtdll[6]);</span><br><br>    <span class="hljs-comment">// 获取链表中第三个模块信息，Kernel32模块</span><br>    PULONGLONG pModuleKernel32 = (PULONGLONG)*pModuleN<span class="hljs-attr">tdll</span><span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">//printf(&quot;Kernel32 Base = &amp;gt; %X \n&quot;, pModuleKernel32[6]);</span><br><br>    <span class="hljs-comment">// 获取kernel32基址</span><br>    dwKernel32A<span class="hljs-attr">ddr</span> <span class="hljs-operator">=</span> pModuleKernel32[<span class="hljs-number">6</span>]<span class="hljs-punctuation">;</span><br><br>    return dwKernel32A<span class="hljs-attr">ddr</span><span class="hljs-punctuation">;</span><br><span class="hljs-punctuation">&#125;</span><br><br><span class="hljs-comment">// 通过解析PE格式的导出表,从给定的模块基地址中获取指定函数的地址</span><br>FARPROC getProcAddress(HMODULE hModuleBase)<br><span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-comment">// 获取DOS头</span><br>    PIMAGE_DOS_HEADER lpDosH<span class="hljs-attr">eader</span> <span class="hljs-operator">=</span> (PIMAGE_DOS_HEADER)hModuleB<span class="hljs-attr">ase</span><span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取NT头</span><br>    PIMAGE_NT_HEADERS64 lpNtH<span class="hljs-attr">eader</span> <span class="hljs-operator">=</span> (PIMAGE_NT_HEADERS64)((ULONG64)hModuleBase + lpDosHeader-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>e_lfanew)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 检查导出目录的大小是否为0</span><br>    if (!lpNtHeader-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].Size) <span class="hljs-punctuation">&#123;</span><br>        return NULL<span class="hljs-punctuation">;</span><br>    <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-comment">// 检查导出目录的虚拟地址是否为0</span><br>    if (!lpNtHeader-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress) <span class="hljs-punctuation">&#123;</span><br>        return NULL<span class="hljs-punctuation">;</span><br>    <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-comment">// 获取导出目录的地址</span><br>    PIMAGE_EXPORT_DIRECTORY lpE<span class="hljs-attr">xports</span> <span class="hljs-operator">=</span> (PIMAGE_EXPORT_DIRECTORY)((ULONG64)hModuleBase + (ULONG64)lpNtHeader-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>OptionalHeader.DataDirectory[IMAGE_DIRECTORY_ENTRY_EXPORT].VirtualAddress)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取导出函数名称的地址</span><br>    PDWORD lpdwFunN<span class="hljs-attr">ame</span> <span class="hljs-operator">=</span> (PDWORD)((ULONG64)hModuleBase + (ULONG64)lpExports-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>AddressOfNames)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取导出函数名称序号的地址</span><br>    PWORD <span class="hljs-attr">lpword</span> <span class="hljs-operator">=</span> (PWORD)((ULONG64)hModuleBase + (ULONG64)lpExports-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>AddressOfNameOrdinals)<span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 获取导出函数地址的地址</span><br>    PDWORD  lpdwFunA<span class="hljs-attr">ddr</span> <span class="hljs-operator">=</span> (PDWORD)((ULONG64)hModuleBase + (ULONG64)lpExports-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>AddressOfFunctions)<span class="hljs-punctuation">;</span><br><br>    <span class="hljs-comment">// 循环计数器</span><br>    DWORD dwL<span class="hljs-attr">oop</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">;</span><br>    <span class="hljs-comment">// 存储找到的函数地址</span><br>    FARPROC pR<span class="hljs-attr">et</span> <span class="hljs-operator">=</span> NULL<span class="hljs-punctuation">;</span><br>    for (<span class="hljs-punctuation">;</span> dwLoop <span class="hljs-variable">&amp;lt</span><span class="hljs-punctuation">;</span>= lpExports-<span class="hljs-variable">&amp;gt</span><span class="hljs-punctuation">;</span>NumberOfNames - <span class="hljs-number">1</span><span class="hljs-punctuation">;</span> dwLoop++) <span class="hljs-punctuation">&#123;</span><br>        <span class="hljs-comment">// 获取当前函数名称的地址</span><br>        char* pFunN<span class="hljs-attr">ame</span> <span class="hljs-operator">=</span> (char*)(lpdwFunName[dwLoop] + (ULONG64)hModuleBase)<span class="hljs-punctuation">;</span><br>        <span class="hljs-comment">// 检查函数名称是否为&quot;GetProcAddress&quot;</span><br>        if (pFunName[<span class="hljs-number">0</span>] == <span class="hljs-string">&#x27;G&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">1</span>] == <span class="hljs-string">&#x27;e&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">2</span>] == <span class="hljs-string">&#x27;t&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">3</span>] == <span class="hljs-string">&#x27;P&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">4</span>] == <span class="hljs-string">&#x27;r&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">5</span>] == <span class="hljs-string">&#x27;o&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">6</span>] == <span class="hljs-string">&#x27;c&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">7</span>] == <span class="hljs-string">&#x27;A&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">8</span>] == <span class="hljs-string">&#x27;d&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">9</span>] == <span class="hljs-string">&#x27;d&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">10</span>] == <span class="hljs-string">&#x27;r&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">11</span>] == <span class="hljs-string">&#x27;e&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">12</span>] == <span class="hljs-string">&#x27;s&#x27;</span> <span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><span class="hljs-variable">&amp;amp</span><span class="hljs-punctuation">;</span><br>            pFunName[<span class="hljs-number">13</span>] == <span class="hljs-string">&#x27;s&#x27;</span>)<br>        <span class="hljs-punctuation">&#123;</span><br>            <span class="hljs-comment">// 找到函数名称，获取其地址</span><br>            pR<span class="hljs-attr">et</span> <span class="hljs-operator">=</span> (FARPROC)(lpdwFunAddr[lpword[dwLoop]] + (ULONG64)hModuleBase)<span class="hljs-punctuation">;</span><br>            <span class="hljs-attr">break</span><span class="hljs-punctuation">;</span><br>        <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-punctuation">&#125;</span><br>    <span class="hljs-comment">// 返回找到的函数地址</span><br>    return pR<span class="hljs-attr">et</span><span class="hljs-punctuation">;</span><br><span class="hljs-punctuation">&#125;</span><br><br><br>void EntryMain()<br><span class="hljs-punctuation">&#123;</span><br>    APIINTERFACE A<span class="hljs-attr">pi</span><span class="hljs-punctuation">;</span><br><br>    HMODULE hKernel32 = (HMODULE)GetModuleKernel64()<span class="hljs-punctuation">;</span><br><br>    Api.pfnGetProcA<span class="hljs-attr">ddress</span> <span class="hljs-operator">=</span> (FN_GetProcAddress)getProcAddress(hKernel32)<span class="hljs-punctuation">;</span><br><br>    char szLoadLibraryA[] = <span class="hljs-punctuation">&#123;</span> <span class="hljs-string">&#x27;L&#x27;</span>,<span class="hljs-string">&#x27;o&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;d&#x27;</span>,<span class="hljs-string">&#x27;L&#x27;</span>,<span class="hljs-string">&#x27;i&#x27;</span>,<span class="hljs-string">&#x27;b&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>,<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>,<span class="hljs-string">&#x27;y&#x27;</span>,<span class="hljs-string">&#x27;A&#x27;</span>,<span class="hljs-number">0</span> <span class="hljs-punctuation">&#125;;</span><br>    Api.pfnLoadL<span class="hljs-attr">ibrary</span> <span class="hljs-operator">=</span> (FN_LoadLibraryA)Api.pfnGetProcAddress(hKernel32, szLoadLibraryA)<span class="hljs-punctuation">;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><em>如果你觉得这篇文章对你有帮助，欢迎分享给更多人！</em> ✨</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fas fa-tags"></i>学习笔记</a>
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fas fa-tags"></i>开发</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2023/03/11/Web-%E5%AE%89%E5%85%A8%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" rel="next" title="Web 安全入门指南"><i class="fas fa-angle-left"></i><span class="nav-title">Web 安全入门指南</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/" rel="prev" title="AI Pentest Agent 架构分析报告"><span class="nav-title">AI Pentest Agent 架构分析报告</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Gin">
+  
+  <h1 class="author-name">Gin</h1>
+  <h2 class="author-description">路的尽头终会是温柔的月光</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#ShellCode%E5%BC%80%E5%8F%91"><span class="toc-text">ShellCode开发</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%BC%80%E5%8F%91PIC-shellcode%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">开发PIC shellcode注意事项</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:gintvt1314@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/GinTvT" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/7409422332" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #FF0000;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Gin</span><span class="year"><i class="far fa-copyright"></i>2023 - 2026</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

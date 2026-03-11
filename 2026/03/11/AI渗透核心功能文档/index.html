@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FF0000">
+    <meta name="msapplication-TileColor" content="#FF0000">
+    
+    
+    
+    
+    <meta name="keywords" content="Web 安全，渗透测试，网络安全，入门教程">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+    
+    
+    <link rel="mask-icon" href="/images/favicon.jpg" color="#FF0000">
+    
+    
+    
+    
+    <link rel="alternate" href="/atom.xml" title="GinTvT-清酒温茶" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>AI Pentest Agent 架构分析报告 | GinTvT-清酒温茶 - Security Research</title>
+  <meta name="generator" content="Hexo 8.1.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #FF0000;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">GinTvT-清酒温茶</a></h1>
+        <h2 class="subtitle">Security Research</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://example.com/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Gin">
+       <meta itemprop="description" content="路的尽头终会是温柔的月光">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GinTvT-清酒温茶">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">AI Pentest Agent 架构分析报告</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2026-03-11T03:55:07+08:00">2026-03-11 03:55:07</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/AI-Agent/" itemprop="url" rel="index"><span itemprop="name">AI Agent</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="AI-Pentest-Agent-架构分析报告"><a href="#AI-Pentest-Agent-架构分析报告" class="headerlink" title="AI Pentest Agent 架构分析报告"></a>AI Pentest Agent 架构分析报告</h1><hr>
+<p>基于朋友的开发思路，我进行了改进并套用</p>
+<h2 id="一、防止灾难性遗忘（Catastrophic-Forgetting-Prevention）"><a href="#一、防止灾难性遗忘（Catastrophic-Forgetting-Prevention）" class="headerlink" title="一、防止灾难性遗忘（Catastrophic Forgetting Prevention）"></a>一、防止灾难性遗忘（Catastrophic Forgetting Prevention）</h2><h3 id="1-1-问题定义"><a href="#1-1-问题定义" class="headerlink" title="1.1 问题定义"></a>1.1 问题定义</h3><p>在长时间渗透测试任务中，LLM 的上下文窗口有限，随着对话轮次增加，早期的关键信息（发现的漏洞、失败的策略、目标特征等）会因上下文截断而丢失，导致 Agent 重复尝试已失败的方法或遗忘已发现的攻击面。</p>
+<h3 id="1-2-多层防遗忘架构"><a href="#1-2-多层防遗忘架构" class="headerlink" title="1.2 多层防遗忘架构"></a>1.2 多层防遗忘架构</h3><p>项目通过 <strong>4 层机制</strong> 协同工作来对抗灾难性遗忘：</p>
+<h4 id="第一层：持久化上下文对象（Persistent-Context-Objects）"><a href="#第一层：持久化上下文对象（Persistent-Context-Objects）" class="headerlink" title="第一层：持久化上下文对象（Persistent Context Objects）"></a>第一层：持久化上下文对象（Persistent Context Objects）</h4><p><code>ai_pentest/context/manager.py:16-31</code> 定义了两个关键的持久化上下文对象：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">PlannerContext</span>(<span class="hljs-title class_ inherited__">BaseModel</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;规划器上下文对象，保存历史规划信息&quot;&quot;&quot;</span><br>    planning_history: <span class="hljs-type">List</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] = []        <span class="hljs-comment"># 所有规划尝试的完整记录</span><br>    rejected_strategies: <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-built_in">str</span>] = &#123;&#125;            <span class="hljs-comment"># 被拒绝的策略及原因</span><br>    long_term_objectives: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>] = []                <span class="hljs-comment"># 长期战略目标</span><br>    latest_reflection_report: <span class="hljs-type">Optional</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]]  <span class="hljs-comment"># 最新反思报告</span><br>    previous_planning_session: <span class="hljs-type">Optional</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] <span class="hljs-comment"># 上一次规划会话</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">ReflectorContext</span>(<span class="hljs-title class_ inherited__">BaseModel</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;反思器上下文对象，保存历史反思信息&quot;&quot;&quot;</span><br>    reflection_log: <span class="hljs-type">List</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] = []           <span class="hljs-comment"># 反思日志</span><br>    validated_patterns: <span class="hljs-type">List</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] = []       <span class="hljs-comment"># 已验证的攻击模式</span><br>    persistent_insights: <span class="hljs-type">List</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] = []      <span class="hljs-comment"># 持久化洞察</span><br></code></pre></td></tr></table></figure>
+
+<p>这些对象<strong>独立于 LLM 对话历史</strong>存在，即使对话被压缩，这些结构化数据仍然保留。</p>
+<p><strong>关键代码</strong>：<code>ai_pentest/context/manager.py:146-182</code> 中的 <code>update_planner_context()</code> 方法持续追加规划历史、被拒策略和反思报告。被拒策略使用 <code>Dict[str, str]</code> 存储，key 为策略名，value 为拒绝原因，确保 Planner 不会重复提出已被否决的方案。</p>
+<h4 id="第二层：智能上下文压缩（LLM-based-Context-Compression）"><a href="#第二层：智能上下文压缩（LLM-based-Context-Compression）" class="headerlink" title="第二层：智能上下文压缩（LLM-based Context Compression）"></a>第二层：智能上下文压缩（LLM-based Context Compression）</h4><p><code>ai_pentest/context/compression.py:13-21</code> 实现了三策略触发的压缩机制：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">ContextCompressor</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">    基于三种策略进行智能压缩：</span><br><span class="hljs-string">    1. 消息数量阈值（默认 50 条）</span><br><span class="hljs-string">    2. 执行轮次阈值（每 10 轮）</span><br><span class="hljs-string">    3. 估算 token 超限（默认 100000）</span><br><span class="hljs-string">    &quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>触发判断</strong>（<code>ai_pentest/context/compression.py:54-88</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">should_compress</span>(<span class="hljs-params">self, messages, execution_count</span>) -&gt; <span class="hljs-built_in">tuple</span>[<span class="hljs-built_in">bool</span>, <span class="hljs-built_in">str</span>]:<br>    <span class="hljs-comment"># 策略 1: 消息数量 &gt; 50</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(messages) &gt; <span class="hljs-variable language_">self</span>.message_threshold:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>, <span class="hljs-string">f&quot;消息数量过多&quot;</span><br>    <span class="hljs-comment"># 策略 2: 每 10 轮定期压缩</span><br>    <span class="hljs-keyword">if</span> execution_count &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> execution_count % <span class="hljs-variable language_">self</span>.compress_interval == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>, <span class="hljs-string">f&quot;定期压缩&quot;</span><br>    <span class="hljs-comment"># 策略 3: 估算 token &gt; 100000</span><br>    estimated_tokens = total_chars // <span class="hljs-number">4</span><br>    <span class="hljs-keyword">if</span> estimated_tokens &gt; <span class="hljs-variable language_">self</span>.token_threshold:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span>, <span class="hljs-string">f&quot;估算 token 超限&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>压缩策略</strong>（<code>ai_pentest/context/compression.py:90-154</code>）：</p>
+<p>压缩后的消息列表 &#x3D; <code>系统提示词(不变)</code> + <code>LLM 生成的历史摘要</code> + <code>最近 10 条消息(不变)</code></p>
+<p>核心是 <code>ai_pentest/context/compression.py:176-186</code> 的压缩提示词，要求 LLM 在摘要中保留：</p>
+<ol>
+<li>所有重要的决策和行动</li>
+<li>关键的工具调用和结果</li>
+<li>失败原因和教训</li>
+<li>时间顺序</li>
+</ol>
+<p>这确保了即使历史消息被压缩，关键的决策轨迹和失败教训不会丢失。</p>
+<h4 id="第三层：ChromaDB-向量知识库（Long-term-Memory）"><a href="#第三层：ChromaDB-向量知识库（Long-term-Memory）" class="headerlink" title="第三层：ChromaDB 向量知识库（Long-term Memory）"></a>第三层：ChromaDB 向量知识库（Long-term Memory）</h4><p><code>ai_pentest/knowledge/chroma.py:36-50</code> 基于 ChromaDB 向量数据库实现持久化知识存储。这层提供<strong>跨任务的长期记忆</strong>：</p>
+<ul>
+<li>攻击 payload 库（如 SQL WAF 绕过技术）</li>
+<li>漏洞利用经验</li>
+<li>工具使用经验</li>
+</ul>
+<p>知识库在 MCP Server 启动时自动预加载（<code>ai_pentest/mcp_server.py:76-80</code>），确保 Agent 在任何新任务开始时都能检索到历史积累的知识。</p>
+<h4 id="第四层：STE-经验提取（Strategy-Tactics-Example）"><a href="#第四层：STE-经验提取（Strategy-Tactics-Example）" class="headerlink" title="第四层：STE 经验提取（Strategy-Tactics-Example）"></a>第四层：STE 经验提取（Strategy-Tactics-Example）</h4><p><code>ai_pentest/core/reflector.py:144-188</code> 的 <code>reflect_global()</code> 方法在任务结束时执行全局反思，提取可复用的 STE 经验：</p>
+<figure class="hljs highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">STE 结构:<br>├── 战略原则（Strategic Principle）：最高层次的攻击原则<br>├── 战术手册（Tactical Manual）：有序的、抽象的步骤列表<br>└── 适用场景（Applicable <span class="hljs-keyword">Scenarios</span>）：标签列表，定义复用场景<br></code></pre></td></tr></table></figure>
+
+<p>这些 STE 经验存储到 <code>ReflectorContext.persistent_insights</code> 中，为后续任务提供可复用的攻击模式。</p>
+<h3 id="1-3-信息流转闭环"><a href="#1-3-信息流转闭环" class="headerlink" title="1.3 信息流转闭环"></a>1.3 信息流转闭环</h3><figure class="hljs highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stylus">Executor 执行 → 结果存入 message_history<br>      ↓<br>Reflector 反思 → validated_patterns / persistent_insights 存入 ReflectorContext<br>      ↓<br><span class="hljs-function"><span class="hljs-title">compress_if_needed</span><span class="hljs-params">()</span></span> → 历史消息压缩为摘要，但 PlannerContext/ReflectorContext 不受影响<br>      ↓<br>Planner 动态规划 → 从 <span class="hljs-built_in">get_planner_summary</span>() 获取完整历史<br>      ↓<br>rejected_strategies 防止重复 → 新规划避免已失败方法<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、逻辑断层解决方案（Logic-Gap-Resolution）"><a href="#二、逻辑断层解决方案（Logic-Gap-Resolution）" class="headerlink" title="二、逻辑断层解决方案（Logic Gap Resolution）"></a>二、逻辑断层解决方案（Logic Gap Resolution）</h2><h3 id="2-1-问题定义"><a href="#2-1-问题定义" class="headerlink" title="2.1 问题定义"></a>2.1 问题定义</h3><p>逻辑断层指 Agent 在渗透测试过程中出现的推理链条断裂：子任务失败后不知道为什么失败、反思结论无法传导到下一次规划、或者 Executor 盲目重试而不调整策略。</p>
+<h3 id="2-2-P-E-R-协作架构"><a href="#2-2-P-E-R-协作架构" class="headerlink" title="2.2 P-E-R 协作架构"></a>2.2 P-E-R 协作架构</h3><p><code>ai_pentest/core/agent.py:33-42</code> 实现了 <strong>Planner-Executor-Reflector (P-E-R)</strong> 三角协作架构来消除逻辑断层：</p>
+<figure class="hljs highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs elm">      ┌─────────┐<br>      │ <span class="hljs-type">Planner</span> │ ← rejected_strategies, latest_reflection_re<span class="hljs-keyword">port</span><br>      └────┬────┘<br>           │ initial_plan / dynamic_plan<br>           ▼<br>┌──────────────────────┐<br>│  <span class="hljs-type">Execute</span>-<span class="hljs-type">Reflect</span>     │ ← _execute_reflect_loop (max <span class="hljs-number">100</span> iterations)<br>│  <span class="hljs-type">Loop</span>                │<br>│                      │<br>│  <span class="hljs-type">Executor</span> ──→ <span class="hljs-type">Reflector</span><br>│     ↑           │    │<br>│     └───────────┘    │<br>│  (<span class="hljs-type">VETO</span> / intelligence)│<br>└──────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-3-分层失败归因（L0-L5-Failure-Attribution）"><a href="#2-3-分层失败归因（L0-L5-Failure-Attribution）" class="headerlink" title="2.3 分层失败归因（L0-L5 Failure Attribution）"></a>2.3 分层失败归因（L0-L5 Failure Attribution）</h3><p>这是消除逻辑断层的核心机制。<code>ai_pentest/failure_attribution/levels.py:35-46</code> 定义了严格的 6 层递进归因体系：</p>
+<figure class="hljs highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs scss">L0 (Observation)  → 工具原始输出（最基础层）<br>L1 (Tool Failure) → 工具执行失败（超时、命令不存在、权限不足）<br>L2 (Prerequisite) → 前提条件失败（会话过期、认证失败、依赖缺失）<br>L3 (Environment)  → 环境阻断（WAF拦截、防火墙、速率限制）<br>L4 (Hypothesis)   → 假设被证伪（需 <span class="hljs-number">3</span>+ 次失败才能归因到此层）<br>L5 (Strategy)     → 战略缺陷（需 <span class="hljs-number">3</span>+ 个 L4 失败形成模式）<br></code></pre></td></tr></table></figure>
+
+<p><strong>严格的递进原则</strong>（<code>ai_pentest/failure_attribution/levels.py:322-397</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">attribute</span>(<span class="hljs-params">self, ...</span>):<br>    <span class="hljs-comment"># 必须逐层排查，低层未排除不能归因到高层</span><br>    l1_result = <span class="hljs-variable language_">self</span>._check_l1_tool_failure(...)  <span class="hljs-comment"># 先排查工具问题</span><br>    <span class="hljs-keyword">if</span> l1_result: <span class="hljs-keyword">return</span> l1_result<br><br>    l2_result = <span class="hljs-variable language_">self</span>._check_l2_prerequisite_failure(...)  <span class="hljs-comment"># 再排查前提条件</span><br>    <span class="hljs-keyword">if</span> l2_result: <span class="hljs-keyword">return</span> l2_result<br><br>    l3_result = <span class="hljs-variable language_">self</span>._check_l3_environment(...)  <span class="hljs-comment"># 再排查环境因素</span><br>    <span class="hljs-keyword">if</span> l3_result: <span class="hljs-keyword">return</span> l3_result<br><br>    <span class="hljs-comment"># 只有排除 L0-L3 后，才能归因到 L4</span><br>    <span class="hljs-keyword">if</span> hypothesis <span class="hljs-keyword">and</span> evidence:<br>        l4_result = <span class="hljs-variable language_">self</span>._check_l4_hypothesis(...)<br>        <span class="hljs-comment"># L4 需要 failed_attempts &gt;= 3 才触发</span><br><br>    <span class="hljs-comment"># 只有多个 L4 失败形成模式（l4_failure_count &gt;= 3），才归因到 L5</span><br>    <span class="hljs-keyword">if</span> strategy:<br>        l5_result = <span class="hljs-variable language_">self</span>._check_l5_strategy(...)<br></code></pre></td></tr></table></figure>
+
+<p>这防止了最常见的逻辑断层：<strong>Agent 错误地将工具级失败归因为策略失败，从而过早放弃正确的攻击路径</strong>。</p>
+<h3 id="2-4-Reflector-的-VETO-权力"><a href="#2-4-Reflector-的-VETO-权力" class="headerlink" title="2.4 Reflector 的 VETO 权力"></a>2.4 Reflector 的 VETO 权力</h3><p><code>ai_pentest/core/reflector.py:39</code> 和 <code>ai_pentest/core/agent.py:229-236</code>：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Reflector 返回的 rejected_staged_nodes 列表</span><br>rejected_nodes = reflection_result.get(<span class="hljs-string">&quot;rejected_staged_nodes&quot;</span>, [])<br><span class="hljs-keyword">if</span> rejected_nodes:<br>    <span class="hljs-variable language_">self</span>.veto_count += <span class="hljs-number">1</span><br>    <span class="hljs-comment"># 直接移除被拒绝的节点</span><br>    tasks = [t <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> tasks <span class="hljs-keyword">if</span> t.get(<span class="hljs-string">&quot;id&quot;</span>) <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> rejected_nodes]<br></code></pre></td></tr></table></figure>
+
+<p>Reflector 拥有否决 Executor 提交的因果图节点的权力。这防止了 Executor 在执行中产生的错误推理被无条件接受，形成逻辑链条上的”坏节点”。</p>
+<h3 id="2-5-动态规划闭环"><a href="#2-5-动态规划闭环" class="headerlink" title="2.5 动态规划闭环"></a>2.5 动态规划闭环</h3><p><code>ai_pentest/core/agent.py:242-258</code> 实现了反思驱动的动态规划：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 基于 Reflector 的情报摘要触发动态规划</span><br><span class="hljs-keyword">if</span> reflection_result.get(<span class="hljs-string">&quot;intelligence_summary&quot;</span>):<br>    dynamic_plan_result = <span class="hljs-keyword">await</span> <span class="hljs-variable language_">self</span>.planner.dynamic_plan(<br>        goal=goal,<br>        graph_summary=graph_summary,<br>        intelligence_summary=reflection_result.get(<span class="hljs-string">&quot;intelligence_summary&quot;</span>),<br>        failure_patterns_summary=reflection_result.get(<span class="hljs-string">&quot;attribution_result&quot;</span>),<br>        failed_nodes=[t <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> tasks <span class="hljs-keyword">if</span> t.get(<span class="hljs-string">&quot;status&quot;</span>) == <span class="hljs-string">&quot;failed&quot;</span>]<br>    )<br></code></pre></td></tr></table></figure>
+
+<p>动态规划的提示词（<code>ai_pentest/core/planner.py:267-356</code>）明确要求：</p>
+<ol>
+<li><strong>失败驱动</strong>：优先处理失败或阻塞的任务</li>
+<li><strong>诊断优先</strong>：为失败任务设计诊断或替代方案</li>
+<li><strong>避免重复</strong>：不要重复已失败的方法</li>
+</ol>
+<p>同时，Planner 通过 <code>get_planner_summary()</code> 获取包含 <code>rejected_strategies</code> 的完整历史，确保新规划不会重蹈覆辙。</p>
+<h3 id="2-6-逻辑断层消除的完整链条"><a href="#2-6-逻辑断层消除的完整链条" class="headerlink" title="2.6 逻辑断层消除的完整链条"></a>2.6 逻辑断层消除的完整链条</h3><figure class="hljs highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">Executor 执行失败<br>    ↓<br>FailureAttributor 进行 L0-L5 递进归因 → 精确定位失败根因<br>    ↓<br>Reflector 审核执行结果:<br>    ├── 验证/否决 Executor 的发现（VETO 权力）<br>    ├── 生成 <span class="hljs-built_in">int</span>elligence_summary（攻击情报）<br>    └── 生成 attribution_result（归因结果）<br>    ↓<br><span class="hljs-built_in">int</span>elligence_summary 触发 Planner 动态规划<br>    ├── 输入：失败归因 + 失败节点 + 情报摘要<br>    ├── 参考：rejected_strategies（避免重复）<br>    └── 输出：诊断任务或替代攻击路径<br>    ↓<br>新任务注入 execute_reflect_loop → 继续执行<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="三、命令执行防沉迷机制（Anti-Addiction-Loop-Prevention）"><a href="#三、命令执行防沉迷机制（Anti-Addiction-Loop-Prevention）" class="headerlink" title="三、命令执行防沉迷机制（Anti-Addiction &#x2F; Loop Prevention）"></a>三、命令执行防沉迷机制（Anti-Addiction &#x2F; Loop Prevention）</h2><h3 id="3-1-问题定义"><a href="#3-1-问题定义" class="headerlink" title="3.1 问题定义"></a>3.1 问题定义</h3><p>LLM Agent 在渗透测试中容易陷入以下模式：</p>
+<ul>
+<li><strong>无限循环</strong>：反复执行相似命令（如同一 payload 的微小变体）</li>
+<li><strong>过度枚举</strong>：对 IDOR 等场景进行逐个 ID 遍历</li>
+<li><strong>超时阻塞</strong>：长时间运行的命令阻塞整个流程</li>
+<li><strong>瞬时故障重试</strong>：网络抖动导致的无意义重试</li>
+</ul>
+<h3 id="3-2-三大防护机制"><a href="#3-2-三大防护机制" class="headerlink" title="3.2 三大防护机制"></a>3.2 三大防护机制</h3><h4 id="机制一：SequenceMatcher-相似度检测"><a href="#机制一：SequenceMatcher-相似度检测" class="headerlink" title="机制一：SequenceMatcher 相似度检测"></a>机制一：SequenceMatcher 相似度检测</h4><p><code>ai_pentest/meta_tooling/anti_addiction.py:43-51</code> 核心参数：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">AntiAddiction</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,</span><br><span class="hljs-params">        similarity_threshold: <span class="hljs-built_in">float</span> = <span class="hljs-number">0.85</span>,  <span class="hljs-comment"># 相似度阈值</span></span><br><span class="hljs-params">        max_similar_count: <span class="hljs-built_in">int</span> = <span class="hljs-number">18</span>,          <span class="hljs-comment"># 最大连续相似次数</span></span><br><span class="hljs-params">        command_timeout: <span class="hljs-built_in">int</span> = <span class="hljs-number">300</span>,            <span class="hljs-comment"># 命令超时 (秒)</span></span><br><span class="hljs-params">        max_retries: <span class="hljs-built_in">int</span> = <span class="hljs-number">3</span>                   <span class="hljs-comment"># 最大重试次数</span></span><br><span class="hljs-params">    </span>):<br></code></pre></td></tr></table></figure>
+
+<p><strong>检测流程</strong>（<code>ai_pentest/meta_tooling/anti_addiction.py:87-114</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_is_similar_to_last_command</span>(<span class="hljs-params">self, current_cmd: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>    <span class="hljs-comment"># 1. 命令太短 (&lt; 10 字符) 不检测</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(current_cmd) &lt; <span class="hljs-variable language_">self</span>._min_cmd_length:<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>    <span class="hljs-comment"># 2. 用 SequenceMatcher 计算与上一条命令的相似度</span><br>    similarity = SequenceMatcher(<span class="hljs-literal">None</span>, current_cmd, last_cmd).ratio()<br>    <span class="hljs-comment"># 3. 相似度 &gt;= 0.85 判定为相似命令</span><br>    <span class="hljs-keyword">return</span> similarity &gt;= <span class="hljs-variable language_">self</span>.similarity_threshold<br></code></pre></td></tr></table></figure>
+
+<p><strong>滑动窗口历史</strong>（<code>ai_pentest/meta_tooling/anti_addiction.py:23-40</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">CommandHistory</span>(<span class="hljs-title class_ inherited__">BaseModel</span>):<br>    commands: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>] = []<br>    max_length: <span class="hljs-built_in">int</span> = <span class="hljs-number">18</span>  <span class="hljs-comment"># 18 条命令的滑动窗口</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">add</span>(<span class="hljs-params">self, command: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-literal">None</span>:<br>        <span class="hljs-variable language_">self</span>.commands.append(command)<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.commands) &gt; <span class="hljs-variable language_">self</span>.max_length:<br>            <span class="hljs-variable language_">self</span>.commands.pop(<span class="hljs-number">0</span>)  <span class="hljs-comment"># FIFO 弹出最早的命令</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>触发警告</strong>（<code>ai_pentest/meta_tooling/anti_addiction.py:116-168</code>）：当连续相似命令达到 18 次时，返回一个结构化的反思提示：</p>
+<figure class="hljs highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">⚠️ 检测到可能陷入循环（已连续执行 18 次相似命令）<br><br>请先思考以下问题来重新制定计划：<br><span class="hljs-bullet">1.</span> 我的核心假设是什么？<br><span class="hljs-bullet">2.</span> 过去 18 次的尝试，是否证明了这个假设是错误的？<br><span class="hljs-bullet">3.</span> 除了当前的方法，还有哪些其他的可能性？<br><span class="hljs-bullet">4.</span> 是否有更高效的方式（如批量处理、自动化脚本）？<br></code></pre></td></tr></table></figure>
+
+<p><strong>关键设计</strong>：警告触发后，计数器重置为 0（<code>anti_addiction.py:162</code>），允许 Agent 在反思后继续执行。执行不相似的命令也会重置计数器（<code>anti_addiction.py:167</code>），即只检测<strong>连续</strong>相似。</p>
+<h4 id="机制二：指数退避重试（Exponential-Backoff-with-Jitter）"><a href="#机制二：指数退避重试（Exponential-Backoff-with-Jitter）" class="headerlink" title="机制二：指数退避重试（Exponential Backoff with Jitter）"></a>机制二：指数退避重试（Exponential Backoff with Jitter）</h4><p><code>ai_pentest/meta_tooling/anti_addiction.py:205-228</code> 使用 <code>tenacity</code> 库创建重试装饰器：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">create_retry_decorator</span>(<span class="hljs-params">self, func_name: <span class="hljs-built_in">str</span> = <span class="hljs-string">&quot;&quot;</span></span>) -&gt; <span class="hljs-type">Callable</span>:<br>    <span class="hljs-keyword">return</span> retry(<br>        retry=retry_if_exception_type(Exception),<br>        wait=wait_exponential_jitter(<br>            initial=<span class="hljs-number">0.3</span>,   <span class="hljs-comment"># 首次重试等待 0.3 秒</span><br>            <span class="hljs-built_in">max</span>=<span class="hljs-number">10</span>,         <span class="hljs-comment"># 最大等待 10 秒</span><br>            jitter=<span class="hljs-number">0.5</span>      <span class="hljs-comment"># ±0.5 秒随机抖动</span><br>        ),<br>        stop=stop_after_attempt(<span class="hljs-variable language_">self</span>.max_retries),  <span class="hljs-comment"># 最多重试 3 次</span><br>        reraise=<span class="hljs-literal">True</span>,<br>    )<br></code></pre></td></tr></table></figure>
+
+<p>等待序列大约为：<code>0.3s → 0.6s → 1.2s</code>（加上 ±0.5s 随机抖动），最多 3 次。</p>
+<p><strong>可重试错误判断</strong>（<code>ai_pentest/meta_tooling/anti_addiction.py:177-203</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@staticmethod</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">is_retryable_error</span>(<span class="hljs-params">exception</span>) -&gt; <span class="hljs-built_in">bool</span>:<br>    <span class="hljs-comment"># ConnectionError → 可重试</span><br>    <span class="hljs-comment"># TimeoutError → 可重试</span><br>    <span class="hljs-comment"># HTTP 408, 404, 429, 500-526 → 可重试</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="机制三：异步超时控制"><a href="#机制三：异步超时控制" class="headerlink" title="机制三：异步超时控制"></a>机制三：异步超时控制</h4><p><code>ai_pentest/meta_tooling/anti_addiction.py:230-257</code>：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">execute_with_timeout</span>(<span class="hljs-params">self, coro, timeout=<span class="hljs-literal">None</span>, func_name=<span class="hljs-string">&quot;&quot;</span></span>):<br>    timeout = timeout <span class="hljs-keyword">or</span> <span class="hljs-variable language_">self</span>.command_timeout  <span class="hljs-comment"># 默认 300 秒</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">await</span> asyncio.wait_for(coro, timeout=timeout)<br></code></pre></td></tr></table></figure>
+
+<p>任何工具调用超过 300 秒将被强制终止，抛出 <code>TimeoutError</code>。</p>
+<h3 id="3-3-在-Executor-中的集成"><a href="#3-3-在-Executor-中的集成" class="headerlink" title="3.3 在 Executor 中的集成"></a>3.3 在 Executor 中的集成</h3><p><code>ai_pentest/core/executor.py:63</code> Executor 初始化时创建 <code>AntiAddiction</code> 实例。</p>
+<p><code>ai_pentest/core/executor.py:431-437</code> 在每次 shell 命令执行前进行防沉迷检查：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> tool_name == <span class="hljs-string">&quot;execute_shell_command&quot;</span>:<br>    command = arguments.get(<span class="hljs-string">&quot;command&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br>    warning = <span class="hljs-variable language_">self</span>.anti_addiction.check_and_record(command)<br>    <span class="hljs-keyword">if</span> warning:<br>        logger.warning(<span class="hljs-string">f&quot;检测到循环模式: <span class="hljs-subst">&#123;warning[:<span class="hljs-number">100</span>]&#125;</span>...&quot;</span>)<br><br><span class="hljs-comment"># 所有工具调用都包装重试装饰器</span><br>retry_decorator = <span class="hljs-variable language_">self</span>.anti_addiction.create_retry_decorator(func_name=tool_name)<br><br><span class="hljs-meta">@retry_decorator</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">_execute</span>():<br>    <span class="hljs-comment"># 实际执行逻辑</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-4-防护层次总结"><a href="#3-4-防护层次总结" class="headerlink" title="3.4 防护层次总结"></a>3.4 防护层次总结</h3><table>
+<thead>
+<tr>
+<th>层级</th>
+<th>机制</th>
+<th>触发条件</th>
+<th>行为</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L1</td>
+<td>相似度检测</td>
+<td>连续 18 次相似度 &gt;&#x3D; 0.85</td>
+<td>返回反思提示，重置计数器</td>
+</tr>
+<tr>
+<td>L2</td>
+<td>指数退避重试</td>
+<td>Exception 异常</td>
+<td>0.3s→0.6s→1.2s+jitter, 最多 3 次</td>
+</tr>
+<tr>
+<td>L3</td>
+<td>超时控制</td>
+<td>单命令超过 300s</td>
+<td>强制终止，抛出 TimeoutError</td>
+</tr>
+<tr>
+<td>L4</td>
+<td>循环迭代上限</td>
+<td>execute_reflect_loop &gt; 100</td>
+<td>标记任务为 FAILED</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="四、Meta-Tooling-层实现"><a href="#四、Meta-Tooling-层实现" class="headerlink" title="四、Meta-Tooling 层实现"></a>四、Meta-Tooling 层实现</h2><h3 id="4-1-设计理念"><a href="#4-1-设计理念" class="headerlink" title="4.1 设计理念"></a>4.1 设计理念</h3><p>Meta-Tooling 层的核心原则是：<strong>Agent 不直接执行任何操作，所有工具在隔离的 Meta-Tooling 层中执行，只将结果返回给 Agent</strong>。这实现了 Agent 推理与工具执行的解耦。</p>
+<h3 id="4-2-架构概览"><a href="#4-2-架构概览" class="headerlink" title="4.2 架构概览"></a>4.2 架构概览</h3><figure class="hljs highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs nix">┌─────────────────────────────────────────────────────┐<br>│                    LLM Agent                         │<br>│           (Planner <span class="hljs-symbol">/</span> Executor <span class="hljs-symbol">/</span> Reflector)           │<br>└──────────────────────┬──────────────────────────────┘<br>                       │ MCP Protocol (JSON-RPC)<br>                       ▼<br>┌─────────────────────────────────────────────────────┐<br>│               MCP Server (mcp_server.py)            │<br>│          ┌────────────────────────────────┐          │<br>│          │      Tool Router <span class="hljs-symbol">/</span> Dispatcher  │          │<br>│          └────────────┬───────────────────┘          │<br>│                       │                              │<br>│    ┌──────────┬───────┼───────┬──────────┐          │<br>│    ▼          ▼       ▼       ▼          ▼          │<br>│ ┌──────┐ ┌───────┐ ┌──────┐ ┌─────┐ ┌──────┐      │<br>│ │Python│ │Browser│ │Termi-│ │Proxy│ │Recon │      │<br>│ │Execu-│ │Automa-│ │nal   │ │     │ │Tools │      │<br>│ │tor   │ │tion   │ │      │ │     │ │      │      │<br>│ └──────┘ └───────┘ └──────┘ └─────┘ └──────┘      │<br>└─────────────────────────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-3-MCP-Server-作为中间层"><a href="#4-3-MCP-Server-作为中间层" class="headerlink" title="4.3 MCP Server 作为中间层"></a>4.3 MCP Server 作为中间层</h3><p><code>ai_pentest/mcp_server.py:52-74</code> 定义了 <code>AIPentestMCPServer</code> 类：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">AIPentestMCPServer</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.server = Server(<span class="hljs-string">&quot;ai-pentest-server&quot;</span>)<br>        <span class="hljs-variable language_">self</span>.python_executor: PythonExecutor | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.browser: BrowserAutomation | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.terminal: Terminal | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.proxy: Proxy | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.knowledge_base: KnowledgeBase | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.notes_storage: NoteStorage | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br>        <span class="hljs-variable language_">self</span>.recon_workflow: ReconWorkflow | <span class="hljs-literal">None</span> = <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<p>MCP Server 持有所有工具实例，Agent 通过 MCP 协议（JSON-RPC over stdio）发送工具调用请求，Server 路由到对应的工具实例执行，只返回文本结果。</p>
+<h3 id="4-4-五大-Meta-Tooling-组件"><a href="#4-4-五大-Meta-Tooling-组件" class="headerlink" title="4.4 五大 Meta-Tooling 组件"></a>4.4 五大 Meta-Tooling 组件</h3><h4 id="4-4-1-PythonExecutor（代码执行沙箱）"><a href="#4-4-1-PythonExecutor（代码执行沙箱）" class="headerlink" title="4.4.1 PythonExecutor（代码执行沙箱）"></a>4.4.1 PythonExecutor（代码执行沙箱）</h4><p><code>ai_pentest/core/executor.py:67</code>：<code>self.python_executor = PythonExecutor(path=&quot;scripts&quot;)</code></p>
+<p>在 Executor 中的调用（<code>ai_pentest/core/executor.py:442-455</code>）：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">if</span> tool_name == <span class="hljs-string">&quot;execute_python_code&quot;</span>:<br><span class="hljs-meta">    @retry_decorator</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">_execute</span>():<br>        outputs = <span class="hljs-variable language_">self</span>.python_executor.execute_code(<br>            session_name=arguments.get(<span class="hljs-string">&quot;session_name&quot;</span>, <span class="hljs-string">&quot;default&quot;</span>),<br>            code=arguments.get(<span class="hljs-string">&quot;code&quot;</span>, <span class="hljs-string">&quot;&quot;</span>),<br>            timeout=arguments.get(<span class="hljs-string">&quot;timeout&quot;</span>, <span class="hljs-number">120</span>)<br>        )<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;\n\n&quot;</span>.join(<br>            <span class="hljs-string">f&quot;Output: <span class="hljs-subst">&#123;output.get(<span class="hljs-string">&#x27;text&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>)&#125;</span>&quot;</span><br>            <span class="hljs-keyword">for</span> output <span class="hljs-keyword">in</span> outputs<br>        )<br></code></pre></td></tr></table></figure>
+
+<p>Agent 发送 Python 代码字符串 → PythonExecutor 在隔离环境中执行 → 只返回输出文本。</p>
+<h4 id="4-4-2-BrowserAutomation（浏览器自动化）"><a href="#4-4-2-BrowserAutomation（浏览器自动化）" class="headerlink" title="4.4.2 BrowserAutomation（浏览器自动化）"></a>4.4.2 BrowserAutomation（浏览器自动化）</h4><p>支持双模式运行：</p>
+<ul>
+<li><strong>CDP 模式</strong>（无代理）：连接到已有的 Chrome 实例</li>
+<li><strong>Playwright 模式</strong>（有代理）：启动独立 Chromium 并配置 HTTP 代理</li>
+</ul>
+<p>Agent 通过 <code>browser_navigate</code>、<code>browser_execute_js</code>、<code>browser_screenshot</code> 等工具与浏览器交互，只收到页面内容&#x2F;截图等结果。</p>
+<h4 id="4-4-3-Terminal（终端会话管理）"><a href="#4-4-3-Terminal（终端会话管理）" class="headerlink" title="4.4.3 Terminal（终端会话管理）"></a>4.4.3 Terminal（终端会话管理）</h4><p><code>ai_pentest/core/executor.py:457-471</code> 的 shell 命令执行：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">elif</span> tool_name == <span class="hljs-string">&quot;execute_shell_command&quot;</span>:<br><span class="hljs-meta">    @retry_decorator</span><br>    <span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">_execute</span>():<br>        session_id = <span class="hljs-variable language_">self</span>.terminal.new_session()           <span class="hljs-comment"># 创建新终端会话</span><br>        <span class="hljs-variable language_">self</span>.terminal.send_keys(session_id=session_id,     <span class="hljs-comment"># 发送命令</span><br>            keys=arguments.get(<span class="hljs-string">&quot;command&quot;</span>, <span class="hljs-string">&quot;&quot;</span>), enter=<span class="hljs-literal">True</span>)<br>        <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">2</span>)                              <span class="hljs-comment"># 等待执行</span><br>        output = <span class="hljs-variable language_">self</span>.terminal.get_output(session_id)       <span class="hljs-comment"># 获取输出</span><br>        <span class="hljs-keyword">return</span> output<br></code></pre></td></tr></table></figure>
+
+<p>Terminal 封装了 tmux 会话管理，Agent 不直接接触 shell，只通过 <code>send_keys</code> → <code>get_output</code> 的模式交互。</p>
+<h4 id="4-4-4-Proxy（HTTP-流量代理）"><a href="#4-4-4-Proxy（HTTP-流量代理）" class="headerlink" title="4.4.4 Proxy（HTTP 流量代理）"></a>4.4.4 Proxy（HTTP 流量代理）</h4><p><code>ai_pentest/core/executor.py:70-73</code>：与 Caido 代理集成</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-variable language_">self</span>.proxy = Proxy(<br>    url=config.proxy_caido_url,<br>    token=config.proxy_caido_token<br>) <span class="hljs-keyword">if</span> config.proxy_caido_token <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br></code></pre></td></tr></table></figure>
+
+<p>Agent 可以通过 <code>proxy_list_traffic</code> 工具查看经过代理的 HTTP 流量，用于分析请求&#x2F;响应。</p>
+<h4 id="4-4-5-Recon-Tools（侦察工具集）"><a href="#4-4-5-Recon-Tools（侦察工具集）" class="headerlink" title="4.4.5 Recon Tools（侦察工具集）"></a>4.4.5 Recon Tools（侦察工具集）</h4><p><code>ai_pentest/recon/__init__.py:1-23</code> 导出的侦察工具：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">- CyberspaceMapper    <span class="hljs-comment"># 空间测绘（FOFA/Quake）</span><br>- FingerprintScanner  <span class="hljs-comment"># 指纹识别</span><br>- DirectoryScanner    <span class="hljs-comment"># 目录扫描</span><br>- JSAnalyzer          <span class="hljs-comment"># JS 分析</span><br>- AuthBypassFuzzer    <span class="hljs-comment"># 鉴权绕过 Fuzz</span><br>- ReconWorkflow       <span class="hljs-comment"># 侦察工作流编排</span><br></code></pre></td></tr></table></figure>
+
+<p>这些工具都在 MCP Server 层实例化和执行，Agent 只收到结构化的扫描结果。</p>
+<h3 id="4-5-工具执行的隔离保障"><a href="#4-5-工具执行的隔离保障" class="headerlink" title="4.5 工具执行的隔离保障"></a>4.5 工具执行的隔离保障</h3><p><strong>Executor 中的工具调用流程</strong>（<code>ai_pentest/core/executor.py:410-537</code>）：</p>
+<figure class="hljs highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs scss">Agent LLM 输出 tool_call<br>    ↓<br><span class="hljs-built_in">_execute_tool_call</span>() 路由<br>    ↓<br>┌─ 防沉迷检查 (anti_addiction.check_and_record)<br>├─ 重试装饰器包装 (create_retry_decorator)<br>├─ Meta-Tool 执行 (PythonExecutor/Terminal/Browser/Proxy)<br>└─ 返回 <span class="hljs-built_in">ToolExecutionResult</span>(tool_name, success, output, error, execution_time)<br>    ↓<br>结果存入 context_manager<span class="hljs-selector-class">.add_message</span>(role=&quot;tool&quot;, content=result.output)<br>    ↓<br>失败归因 <span class="hljs-built_in">_attribute_failure</span>() → L0-L5 分析<br>    ↓<br>漏洞自动检测 <span class="hljs-built_in">_check_and_save_vulnerability</span>() → 保存笔记<br></code></pre></td></tr></table></figure>
+
+<p>关键点：</p>
+<ol>
+<li>Agent 永远不直接执行命令，只通过 Meta-Tooling 层间接操作</li>
+<li>每次工具调用都经过防沉迷检查和重试包装</li>
+<li>工具输出经过 <code>ToolExecutionResult</code> 标准化后才返回</li>
+<li>失败会自动进行 L0-L5 归因</li>
+<li>漏洞相关输出自动保存到笔记系统</li>
+</ol>
+<h3 id="4-6-Meta-Tooling-层的安全边界"><a href="#4-6-Meta-Tooling-层的安全边界" class="headerlink" title="4.6 Meta-Tooling 层的安全边界"></a>4.6 Meta-Tooling 层的安全边界</h3><figure class="hljs highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">Agent 层（纯推理）<br>    ↑ 只接收文本结果<br>    │<br>    ├── 不直接访问文件系统<br>    ├── 不直接执行 <span class="hljs-keyword">shell </span>命令<br>    ├── 不直接操作浏览器 DOM<br>    └── 不直接发送网络请求<br>    │<br>    ↓ 只发送工具调用请求<br>Meta-Tooling 层（隔离执行）<br>    ├── PythonExecutor：沙箱化代码执行<br>    ├── Terminal：tmux 会话隔离<br>    ├── <span class="hljs-keyword">Browser：CDP/Playwright </span>封装<br>    ├── Proxy：HTTP 流量只读访问<br>    └── Recon：封装的扫描工具<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h2><table>
+<thead>
+<tr>
+<th>机制</th>
+<th>核心组件</th>
+<th>关键文件</th>
+<th>设计特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>防灾难性遗忘</td>
+<td>PlannerContext + ReflectorContext + ContextCompressor + ChromaDB</td>
+<td>manager.py, compression.py, chroma.py</td>
+<td>4 层防护：持久化对象 + LLM 压缩 + 向量存储 + STE 经验</td>
+</tr>
+<tr>
+<td>逻辑断层消除</td>
+<td>L0-L5 归因 + VETO 权力 + 动态规划</td>
+<td>levels.py, reflector.py, planner.py</td>
+<td>严格递进归因 + 反思驱动重规划 + 被拒策略记忆</td>
+</tr>
+<tr>
+<td>防沉迷机制</td>
+<td>SequenceMatcher + tenacity + asyncio.wait_for</td>
+<td>anti_addiction.py, executor.py</td>
+<td>相似度检测 + 指数退避 + 超时终止 + 迭代上限</td>
+</tr>
+<tr>
+<td>Meta-Tooling</td>
+<td>MCP Server + 5 大工具封装</td>
+<td>mcp_server.py, executor.py</td>
+<td>推理与执行解耦，标准化结果返回，全链路防护</td>
+</tr>
+</tbody></table>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fas fa-tags"></i>学习笔记</a>
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fas fa-tags"></i>开发</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2023/05/12/shellcode%E5%BC%80%E5%8F%91/" rel="next" title="ShellCode开发"><i class="fas fa-angle-left"></i><span class="nav-title">ShellCode开发</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Gin">
+  
+  <h1 class="author-name">Gin</h1>
+  <h2 class="author-description">路的尽头终会是温柔的月光</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#AI-Pentest-Agent-%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A"><span class="toc-text">AI Pentest Agent 架构分析报告</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81%E9%98%B2%E6%AD%A2%E7%81%BE%E9%9A%BE%E6%80%A7%E9%81%97%E5%BF%98%EF%BC%88Catastrophic-Forgetting-Prevention%EF%BC%89"><span class="toc-text">一、防止灾难性遗忘（Catastrophic Forgetting Prevention）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-2-%E5%A4%9A%E5%B1%82%E9%98%B2%E9%81%97%E5%BF%98%E6%9E%B6%E6%9E%84"><span class="toc-text">1.2 多层防遗忘架构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AF%B9%E8%B1%A1%EF%BC%88Persistent-Context-Objects%EF%BC%89"><span class="toc-text">第一层：持久化上下文对象（Persistent Context Objects）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E6%99%BA%E8%83%BD%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%EF%BC%88LLM-based-Context-Compression%EF%BC%89"><span class="toc-text">第二层：智能上下文压缩（LLM-based Context Compression）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9AChromaDB-%E5%90%91%E9%87%8F%E7%9F%A5%E8%AF%86%E5%BA%93%EF%BC%88Long-term-Memory%EF%BC%89"><span class="toc-text">第三层：ChromaDB 向量知识库（Long-term Memory）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9ASTE-%E7%BB%8F%E9%AA%8C%E6%8F%90%E5%8F%96%EF%BC%88Strategy-Tactics-Example%EF%BC%89"><span class="toc-text">第四层：STE 经验提取（Strategy-Tactics-Example）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-3-%E4%BF%A1%E6%81%AF%E6%B5%81%E8%BD%AC%E9%97%AD%E7%8E%AF"><span class="toc-text">1.3 信息流转闭环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81%E9%80%BB%E8%BE%91%E6%96%AD%E5%B1%82%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88Logic-Gap-Resolution%EF%BC%89"><span class="toc-text">二、逻辑断层解决方案（Logic Gap Resolution）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">2.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-2-P-E-R-%E5%8D%8F%E4%BD%9C%E6%9E%B6%E6%9E%84"><span class="toc-text">2.2 P-E-R 协作架构</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-3-%E5%88%86%E5%B1%82%E5%A4%B1%E8%B4%A5%E5%BD%92%E5%9B%A0%EF%BC%88L0-L5-Failure-Attribution%EF%BC%89"><span class="toc-text">2.3 分层失败归因（L0-L5 Failure Attribution）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-4-Reflector-%E7%9A%84-VETO-%E6%9D%83%E5%8A%9B"><span class="toc-text">2.4 Reflector 的 VETO 权力</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-5-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AD%E7%8E%AF"><span class="toc-text">2.5 动态规划闭环</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-6-%E9%80%BB%E8%BE%91%E6%96%AD%E5%B1%82%E6%B6%88%E9%99%A4%E7%9A%84%E5%AE%8C%E6%95%B4%E9%93%BE%E6%9D%A1"><span class="toc-text">2.6 逻辑断层消除的完整链条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%98%B2%E6%B2%89%E8%BF%B7%E6%9C%BA%E5%88%B6%EF%BC%88Anti-Addiction-Loop-Prevention%EF%BC%89"><span class="toc-text">三、命令执行防沉迷机制（Anti-Addiction &#x2F; Loop Prevention）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">3.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-2-%E4%B8%89%E5%A4%A7%E9%98%B2%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="toc-text">3.2 三大防护机制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%B8%80%EF%BC%9ASequenceMatcher-%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E6%B5%8B"><span class="toc-text">机制一：SequenceMatcher 相似度检测</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%BA%8C%EF%BC%9A%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF%E9%87%8D%E8%AF%95%EF%BC%88Exponential-Backoff-with-Jitter%EF%BC%89"><span class="toc-text">机制二：指数退避重试（Exponential Backoff with Jitter）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%B8%89%EF%BC%9A%E5%BC%82%E6%AD%A5%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6"><span class="toc-text">机制三：异步超时控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-3-%E5%9C%A8-Executor-%E4%B8%AD%E7%9A%84%E9%9B%86%E6%88%90"><span class="toc-text">3.3 在 Executor 中的集成</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-4-%E9%98%B2%E6%8A%A4%E5%B1%82%E6%AC%A1%E6%80%BB%E7%BB%93"><span class="toc-text">3.4 防护层次总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%9B%9B%E3%80%81Meta-Tooling-%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">四、Meta-Tooling 层实现</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-1-%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-text">4.1 设计理念</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-2-%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="toc-text">4.2 架构概览</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-3-MCP-Server-%E4%BD%9C%E4%B8%BA%E4%B8%AD%E9%97%B4%E5%B1%82"><span class="toc-text">4.3 MCP Server 作为中间层</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-4-%E4%BA%94%E5%A4%A7-Meta-Tooling-%E7%BB%84%E4%BB%B6"><span class="toc-text">4.4 五大 Meta-Tooling 组件</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-1-PythonExecutor%EF%BC%88%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B2%99%E7%AE%B1%EF%BC%89"><span class="toc-text">4.4.1 PythonExecutor（代码执行沙箱）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-2-BrowserAutomation%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%89"><span class="toc-text">4.4.2 BrowserAutomation（浏览器自动化）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-3-Terminal%EF%BC%88%E7%BB%88%E7%AB%AF%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%89"><span class="toc-text">4.4.3 Terminal（终端会话管理）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-4-Proxy%EF%BC%88HTTP-%E6%B5%81%E9%87%8F%E4%BB%A3%E7%90%86%EF%BC%89"><span class="toc-text">4.4.4 Proxy（HTTP 流量代理）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-5-Recon-Tools%EF%BC%88%E4%BE%A6%E5%AF%9F%E5%B7%A5%E5%85%B7%E9%9B%86%EF%BC%89"><span class="toc-text">4.4.5 Recon Tools（侦察工具集）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-5-%E5%B7%A5%E5%85%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E9%9A%94%E7%A6%BB%E4%BF%9D%E9%9A%9C"><span class="toc-text">4.5 工具执行的隔离保障</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-6-Meta-Tooling-%E5%B1%82%E7%9A%84%E5%AE%89%E5%85%A8%E8%BE%B9%E7%95%8C"><span class="toc-text">4.6 Meta-Tooling 层的安全边界</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">五、总结</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:gintvt1314@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/GinTvT" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/7409422332" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #FF0000;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Gin</span><span class="year"><i class="far fa-copyright"></i>2023 - 2026</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

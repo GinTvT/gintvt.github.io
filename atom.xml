@@ -8,7 +8,7 @@
   <link href="https://gintvt.github.io/" rel="alternate"/>
   <link href="https://gintvt.github.io/atom.xml" rel="self"/>
   <rights>All rights reserved 2026, Gin</rights>
-  <subtitle>Security Research</subtitle>
+  <subtitle>Whisper to the Destiny</subtitle>
   <title>GinTvT-清酒温茶</title>
   <updated>2026-03-11T08:41:24.445Z</updated>
   <entry>
@@ -17,8 +17,8 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="AI Agent" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/AI-Agent/"/>
-    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://gintvt.github.io/2026/03/11/MCP%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
     <link href="https://gintvt.github.io/2026/03/11/MCP%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
     <published>2026-03-10T19:55:07.000Z</published>
@@ -32,14 +32,29 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="AI Agent" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/AI-Agent/"/>
-    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
-    <id>https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/</id>
-    <link href="https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/"/>
-    <published>2026-03-10T19:55:07.000Z</published>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://gintvt.github.io/2026/02/14/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/</id>
+    <link href="https://gintvt.github.io/2026/02/14/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/"/>
+    <published>2026-02-14T05:45:01.000Z</published>
     <summary>基于朋友的开发思路，我进行了一些改进</summary>
     <title>AI Pentest Agent 架构分析报告</title>
-    <updated>2026-03-11T08:34:18.538Z</updated>
+    <updated>2026-03-11T09:48:21.610Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Gin</name>
+    </author>
+    <category term="随记" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/"/>
+    <category term="生活" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/%E7%94%9F%E6%B4%BB/"/>
+    <category term="生活" scheme="https://gintvt.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    <category term="碎片" scheme="https://gintvt.github.io/tags/%E7%A2%8E%E7%89%87/"/>
+    <id>https://gintvt.github.io/2025/07/19/%E5%8C%97%E4%BA%AC/</id>
+    <link href="https://gintvt.github.io/2025/07/19/%E5%8C%97%E4%BA%AC/"/>
+    <published>2025-07-19T08:43:07.000Z</published>
+    <summary>北京很大，也很好，只是不适合我</summary>
+    <title>北京🧩</title>
+    <updated>2026-03-11T10:19:01.099Z</updated>
   </entry>
   <entry>
     <author>
@@ -47,14 +62,44 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="代码审计" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    <category term="代码审计" scheme="https://gintvt.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="代码审计" scheme="https://gintvt.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
     <id>https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/</id>
     <link href="https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/"/>
     <published>2025-05-23T05:55:07.000Z</published>
-    <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
+    <summary>最近也是在复健一下代码审计, 顺便记录一下思路</summary>
     <title>.NET审计记录</title>
-    <updated>2026-03-11T08:08:18.499Z</updated>
+    <updated>2026-03-11T10:19:31.943Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Gin</name>
+    </author>
+    <category term="随记" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/"/>
+    <category term="生活" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/%E7%94%9F%E6%B4%BB/"/>
+    <category term="Steam" scheme="https://gintvt.github.io/tags/Steam/"/>
+    <category term="火山的女儿" scheme="https://gintvt.github.io/tags/%E7%81%AB%E5%B1%B1%E7%9A%84%E5%A5%B3%E5%84%BF/"/>
+    <id>https://gintvt.github.io/2023/06/19/%E7%81%AB%E5%B1%B1%E7%9A%84%E5%A5%B3%E5%84%BF/</id>
+    <link href="https://gintvt.github.io/2023/06/19/%E7%81%AB%E5%B1%B1%E7%9A%84%E5%A5%B3%E5%84%BF/"/>
+    <published>2023-06-19T06:21:23.000Z</published>
+    <summary>好玩爱玩😋</summary>
+    <title>Steam记录1</title>
+    <updated>2026-03-11T10:18:05.017Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Gin</name>
+    </author>
+    <category term="随记" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/"/>
+    <category term="生活" scheme="https://gintvt.github.io/categories/%E9%9A%8F%E8%AE%B0/%E7%94%9F%E6%B4%BB/"/>
+    <category term="CSGO" scheme="https://gintvt.github.io/tags/CSGO/"/>
+    <category term="生活" scheme="https://gintvt.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    <id>https://gintvt.github.io/2023/05/16/23%E5%B7%B4%E9%BB%8Emajor/</id>
+    <link href="https://gintvt.github.io/2023/05/16/23%E5%B7%B4%E9%BB%8Emajor/"/>
+    <published>2023-05-16T06:21:23.000Z</published>
+    <summary>又是一年</summary>
+    <title>23巴黎Major</title>
+    <updated>2026-03-11T10:18:30.308Z</updated>
   </entry>
   <entry>
     <author>
@@ -62,8 +107,8 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="开发" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91/"/>
-    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://gintvt.github.io/2023/05/12/shellcode%E5%BC%80%E5%8F%91/</id>
     <link href="https://gintvt.github.io/2023/05/12/shellcode%E5%BC%80%E5%8F%91/"/>
     <published>2023-05-12T05:55:07.000Z</published>
@@ -86,6 +131,6 @@
     <published>2023-03-10T19:55:07.000Z</published>
     <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
     <title>Web 安全入门指南</title>
-    <updated>2026-03-11T08:24:04.645Z</updated>
+    <updated>2026-03-11T09:56:10.160Z</updated>
   </entry>
 </feed>

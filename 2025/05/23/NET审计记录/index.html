@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FF0000">
+    <meta name="msapplication-TileColor" content="#FF0000">
+    
+    
+    
+    
+    <meta name="keywords" content="Web 安全，渗透测试，网络安全，入门教程">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+    
+    
+    <link rel="mask-icon" href="/images/favicon.jpg" color="#FF0000">
+    
+    
+    
+    
+    <link rel="alternate" href="/atom.xml" title="GinTvT-清酒温茶" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">Copy</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"Copy\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>.NET审计记录 | GinTvT-清酒温茶 - Whisper to the Destiny</title>
+  <meta name="generator" content="Hexo 8.1.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #FF0000;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">GinTvT-清酒温茶</a></h1>
+        <h2 class="subtitle">Whisper to the Destiny</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Gin">
+       <meta itemprop="description" content="路的尽头终会是温柔的月光">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GinTvT-清酒温茶">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">.NET审计记录</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2025-05-23T13:55:07+08:00">2025-05-23 13:55:07</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" itemprop="url" rel="index"><span itemprop="name">代码审计</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="NET审计记录"><a href="#NET审计记录" class="headerlink" title=".NET审计记录"></a>.NET审计记录</h1><p>最近也是在复健一下代码审计, 顺便记录一下思路</p>
+<h2 id="审计准备"><a href="#审计准备" class="headerlink" title="审计准备"></a>审计准备</h2><p>一个正常人的脑子</p>
+<p>一个正常人用的电脑</p>
+<p>一套net代码</p>
+<p>审计工具:dnSpy:<a target="_blank" rel="noopener" href="https://github.com/dnSpy/dnSpy">https://github.com/dnSpy/dnSpy</a></p>
+<h3 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h3><p>我们用一个大佬打下来的某套源码来审计, 该系统如果出洞也是通用了()</p>
+<p><strong>第一步:看眼路由</strong></p>
+<p>简单用登录框看一眼路由结构</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152250817.png" alt="image-20260311152250749"></p>
+<p>抓包看路径</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152336020.png" alt="image-20260311152335976"></p>
+<p>&#x2F;Home&#x2F;newLogin 根据这个路径, 没有像login.aspx的文件拓展名, 可以高度确定网站是一个MVC架构, 且存在一个集中的controller </p>
+<p>Home是controller, newLogin是方法 </p>
+<p>所以现在, 我们回到源码中去找他集中的controller</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152427426.png" alt="image-20260311152427374"></p>
+<p>根据他的dll来猜测, system应该是系统的东西, 应该跟controller没什么关系, 其他的一些命名也不是很符合我们要找的controller, 看到JuCheap, 感觉就是他了, 点开JuCheap后, 果然我们发现了controller</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152458355.png" alt="image-20260311152458321"></p>
+<p>依照登录口的路由&#x2F;Home&#x2F;newLogin, 我们可以在controller中找到他</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152534045.png" alt="image-20260311152534002"></p>
+<p>既然到这里, 我们再看看他下面的一些东西, 其中有一个叫做Filters的, 这个就是过滤器, 如果方法添加了过滤器, 那就可能没办法从前台发起攻击了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152600014.png" alt="image-20260311152559978"></p>
+<p>当然也不是绝对, 万一他的过滤器压根就没写东西呢, 别不信, 真有这种</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152620431.png" alt="image-20260311152620400"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152633177.png" alt="image-20260311152633150"></p>
+<p>这套代码就写的有点东西, 审计难度也大(其实就是我菜), 接下来我们看一套难度没这么大的</p>
+<h3 id="案例2"><a href="#案例2" class="headerlink" title="案例2"></a>案例2</h3><p>这回也是拿一套非MVC架构的来审 路径中有.aspx, 这就是非常典型的Web Forms, 这种结构就是单纯的物理文件了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152724626.png" alt="image-20260311152724531"></p>
+<p>我们直接跳过审计阶段来到漏洞点, 这里接收了参数到DleteTemp中</p>
+<p><img src="https://cdn.jsdelivr.net/gh/GinTvT/Image@img/img/20260311152752753.png" alt="image-20260311152752690"></p>
+<hr>
+<p><em>GinTvT</em></p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fas fa-tags"></i>学习笔记</a>
+        
+        <a class="post-tag button" href="/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/" rel="tag"><i class="fas fa-tags"></i>代码审计</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2023/06/19/%E7%81%AB%E5%B1%B1%E7%9A%84%E5%A5%B3%E5%84%BF/" rel="next" title="Steam记录1"><i class="fas fa-angle-left"></i><span class="nav-title">Steam记录1</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2025/07/19/%E5%8C%97%E4%BA%AC/" rel="prev" title="北京🧩"><span class="nav-title">北京🧩</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Gin">
+  
+  <h1 class="author-name">Gin</h1>
+  <h2 class="author-description">路的尽头终会是温柔的月光</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95"><span class="toc-text">.NET审计记录</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%A1%E8%AE%A1%E5%87%86%E5%A4%87"><span class="toc-text">审计准备</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%A1%88%E4%BE%8B1"><span class="toc-text">案例1</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%A1%88%E4%BE%8B2"><span class="toc-text">案例2</span></a></li></ol></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>Social Links</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:gintvt1314@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/GinTvT" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/7409422332" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>Blogroll</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://ghbbhc.github.io/" target="_blank">Maododo's Blog</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="music-player sidebar-item">
+      <div><i class="fas fa-music"></i>🎵 日语循环</div>
+      <div class="music-player-container" style="margin-top: 10px;">
+        
+        <iframe 
+          frameborder="no" 
+          border="0" 
+          marginwidth="0" 
+          marginheight="0" 
+          width="100%" 
+          height="380" 
+          src="//music.163.com/outchain/player?type=0&id=965885627&auto=0&height=360">
+        </iframe>
+        
+      </div>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #FF0000;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Gin</span><span class="year"><i class="far fa-copyright"></i>2023 - 2026</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

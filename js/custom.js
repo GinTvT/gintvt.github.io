@@ -27,4 +27,41 @@ $(document).ready(function() {
     }, 1000);
 });
 
+// 禁止 F12 开发者工具
+document.onkeydown = function(e) {
+    // 禁止 F12
+    if (e.keyCode === 123) {
+        return false;
+    }
+    // 禁止 Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
+        return false;
+    }
+    // 禁止 Ctrl+Shift+J
+    if (e.ctrlKey && e.shiftKey && e.keyCode === 74) {
+        return false;
+    }
+    // 禁止 Ctrl+U（查看源代码）
+    if (e.ctrlKey && e.keyCode === 85) {
+        return false;
+    }
+    // 禁止 Ctrl+S（保存页面）
+    if (e.ctrlKey && e.keyCode === 83) {
+        return false;
+    }
+};
+
+// 禁止右键菜单
+document.oncontextmenu = function() {
+    return false;
+};
+
+// 检测开发者工具是否打开（简单检测）
+setInterval(function() {
+    if (window.outerHeight - window.innerHeight > 200 || window.outerWidth - window.innerWidth > 200) {
+        // 检测到开发者工具可能已打开
+        console.clear();
+    }
+}, 1000);
+
 })(jQuery);

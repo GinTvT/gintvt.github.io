@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FF0000">
+    <meta name="msapplication-TileColor" content="#FF0000">
+    
+    
+    
+    
+    <meta name="keywords" content="MCP，AI">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.jpg">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.jpg">
+    
+    
+    <link rel="mask-icon" href="/images/favicon.jpg" color="#FF0000">
+    
+    
+    
+    
+    <link rel="alternate" href="/atom.xml" title="GinTvT-清酒温茶" type="application/atom+xml" />
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var cb = null;
+      var els = $(".post figure.highlight");
+      if (els.length) {
+        // Enabled Hexo highlight line number.
+        $(els).each(function (i, e) {
+          // $(e).before("<button class=\"copy button\">複製</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"複製\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling.firstChild.firstChild.firstChild.lastChild.firstChild.firstChild;
+          }
+        });
+      } else {
+        // Disabled Hexo highlight line number.
+        els = $(".post pre code");
+        $(els).each(function (i, e) {
+          // Add button before pre, not code.
+          // $(e).parent().before("<button class=\"copy button\">複製</button>");
+          $(e).before([
+            "<div class=\"code-titlebar\">",
+              "<div class=\"titlebar-left\">",
+                "<button class=\"copy\" aria-label=\"複製\"><i class=\"far fa-copy\"></i></button>",
+              "</div>",
+              "<div class=\"titlebar-center\">",
+                "code",
+              "</div>",
+              "<div class=\"titlebar-right\">",
+                "<button class=\"button-dot dot-minimize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-maximize\" aria-label=\"Decoration\"></button>",
+                "<button class=\"button-dot dot-close\" aria-label=\"Decoration\"></button>",
+              "</div>",
+            "</div>"
+          ].join(""));
+        });
+        cb = new ClipboardJS("button.copy", {
+          "target": function (trigger) {
+              // Get target element by DOM API.
+              return trigger.parentNode.parentNode.nextElementSibling;
+          }
+        });
+      }
+      cb.on("success", function (e) {
+        e.clearSelection();
+        var trigger = e.trigger;
+        // Change button text as a user tip.
+        trigger.innerHTML = "<i class=\"far fa-check-square\"></i>";
+        $(trigger).addClass("copied");
+        // Change button text back;
+        setTimeout(function () {
+          trigger.innerHTML = "<i class=\"far fa-copy\"></i>";
+          $(trigger).removeClass("copied");
+        }, 1500);
+      });
+    });
+    </script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>MCP 统一入口设计思路 | GinTvT-清酒温茶 - Security Research</title>
+  <meta name="generator" content="Hexo 8.1.1"></head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN"  data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #FF0000;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">GinTvT-清酒温茶</a></h1>
+        <h2 class="subtitle">Security Research</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切換導航欄"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
+        
+        <li role="menuitem"><a href="/archives/"><i class="fas fa-archive"></i><span class="menu-text">归档</span></a></li>
+        
+        <li role="menuitem"><a href="/categories/"><i class="fas fa-th-list"></i><span class="menu-text">分类</span></a></li>
+        
+        <li role="menuitem"><a href="/tags/"><i class="fas fa-tags"></i><span class="menu-text">标签</span></a></li>
+        
+        <li role="menuitem"><a href="/about/"><i class="fas fa-user-edit"></i><span class="menu-text">关于</span></a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card" itemscope itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="https://gintvt.github.io/2026/03/11/MCP%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/">
+      <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Gin">
+       <meta itemprop="description" content="路的尽头终会是温柔的月光">
+       <meta itemprop="image" content="/images/avatar.jpg">
+      </span>
+      <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="GinTvT-清酒温茶">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">MCP 统一入口设计思路</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2026-03-11T03:55:07+08:00">2026-03-11 03:55:07</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span><i class="fas fa-angle-right"></i><span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/%E6%8A%80%E6%9C%AF/AI-Agent/" itemprop="url" rel="index"><span itemprop="name">AI Agent</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <h1 id="MCP-统一入口设计思路"><a href="#MCP-统一入口设计思路" class="headerlink" title="MCP 统一入口设计思路"></a>MCP 统一入口设计思路</h1><h2 id="📋-目录"><a href="#📋-目录" class="headerlink" title="📋 目录"></a>📋 目录</h2><ul>
+<li><a href="#%E6%A6%82%E8%BF%B0">概述</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E5%8A%A8%E6%9C%BA">设计动机</a></li>
+<li><a href="#%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89">统一入口的定义</a></li>
+<li><a href="#%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82">架构分层</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%BC%8F">实现模式</a></li>
+<li><a href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82">关键技术细节</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8A%BF">设计优势</a></li>
+<li><a href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93">设计模式总结</a></li>
+<li><a href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">最佳实践</a></li>
+<li><a href="#%E6%9E%B6%E6%9E%84%E5%9B%BE">架构图</a></li>
+</ul>
+<hr>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>MCP（Model Context Protocol）架构采用<strong>统一入口</strong>设计模式，将原本分散的多个功能整合到单一的工具接口中，通过 <code>action</code> 参数区分不同的子操作。这种设计大幅减少了工具数量，提高了系统的可维护性和易用性。</p>
+<hr>
+<h2 id="设计动机"><a href="#设计动机" class="headerlink" title="设计动机"></a>设计动机</h2><h3 id="问题-1：工具泛滥"><a href="#问题-1：工具泛滥" class="headerlink" title="问题 1：工具泛滥"></a>问题 1：工具泛滥</h3><p>如果有 20 个功能模块，每个模块有 5-6 个操作，会产生 <strong>100+ 个 MCP 工具</strong>：</p>
+<ul>
+<li>工具过多导致 Agent 难以选择</li>
+<li>增加调用错误的概率</li>
+<li>Agent 需要记忆大量工具名称</li>
+</ul>
+<h3 id="问题-2：功能分散"><a href="#问题-2：功能分散" class="headerlink" title="问题 2：功能分散"></a>问题 2：功能分散</h3><p>相似功能分散在不同工具中：</p>
+<ul>
+<li>代码重复严重</li>
+<li>维护和扩展困难</li>
+<li>需要在多个工具中同步修改</li>
+</ul>
+<h3 id="问题-3：接口不一致"><a href="#问题-3：接口不一致" class="headerlink" title="问题 3：接口不一致"></a>问题 3：接口不一致</h3><p>不同工具的参数命名、返回格式不统一：</p>
+<ul>
+<li>Agent 需要记忆每个工具的特殊用法</li>
+<li>增加学习成本</li>
+<li>容易出错</li>
+</ul>
+<hr>
+<h2 id="统一入口的定义"><a href="#统一入口的定义" class="headerlink" title="统一入口的定义"></a>统一入口的定义</h2><p><strong>公式</strong>：统一入口 &#x3D; 单一 MCP 工具 + action 参数 + 多个子操作</p>
+<h3 id="对比示例"><a href="#对比示例" class="headerlink" title="对比示例"></a>对比示例</h3><h4 id="传统方式：多个独立工具"><a href="#传统方式：多个独立工具" class="headerlink" title="传统方式：多个独立工具"></a>传统方式：多个独立工具</h4><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 6 个独立工具</span><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search_knowledge</span>(<span class="hljs-params">query: <span class="hljs-built_in">str</span>, ...</span>) -&gt; <span class="hljs-built_in">str</span>: ...<br><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">add_knowledge</span>(<span class="hljs-params">content: <span class="hljs-built_in">str</span>, ...</span>) -&gt; <span class="hljs-built_in">str</span>: ...<br><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_detail_knowledge</span>(<span class="hljs-params">entry_id: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>: ...<br><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">export_knowledge</span>() -&gt; <span class="hljs-built_in">str</span>: ...<br><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">list_backups</span>() -&gt; <span class="hljs-built_in">str</span>: ...<br><br><span class="hljs-meta">@tool</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">restore_backup</span>(<span class="hljs-params">backup_file: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">str</span>: ...<br></code></pre></td></tr></table></figure>
+
+<h4 id="统一入口方式：1-个工具-action-参数"><a href="#统一入口方式：1-个工具-action-参数" class="headerlink" title="统一入口方式：1 个工具 + action 参数"></a>统一入口方式：1 个工具 + action 参数</h4><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@tool(<span class="hljs-params">name=<span class="hljs-string">&#x27;knowledge&#x27;</span></span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">knowledge</span>(<span class="hljs-params"></span><br><span class="hljs-params">    action: <span class="hljs-built_in">str</span>,</span><br><span class="hljs-params">    query: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = <span class="hljs-literal">None</span>,</span><br><span class="hljs-params">    content: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = <span class="hljs-literal">None</span>,</span><br><span class="hljs-params">    entry_id: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = <span class="hljs-literal">None</span>,</span><br><span class="hljs-params">    backup_file: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = <span class="hljs-literal">None</span>,</span><br><span class="hljs-params">    ...</span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;知识库统一入口 - 整合 6 个知识库相关工具&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;search&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;add&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;get_detail&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;export&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;list_backups&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;restore&#x27;</span>: ...<br></code></pre></td></tr></table></figure>
+
+<p><strong>效果</strong>：工具数量从 6 个减少到 1 个，减少 <strong>83%</strong></p>
+<hr>
+<h2 id="架构分层"><a href="#架构分层" class="headerlink" title="架构分层"></a>架构分层</h2><p>MCP 架构中的统一入口分为三个层次：</p>
+<h3 id="核心层统一入口（逻辑断层相关）"><a href="#核心层统一入口（逻辑断层相关）" class="headerlink" title="核心层统一入口（逻辑断层相关）"></a>核心层统一入口（逻辑断层相关）</h3><table>
+<thead>
+<tr>
+<th>工具名</th>
+<th>功能描述</th>
+<th>支持的操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>context</code></td>
+<td>防遗忘统一入口</td>
+<td><code>get_planner_summary</code> &#x2F; <code>get_reflector_summary</code> &#x2F; <code>add_objective</code> &#x2F; <code>clear</code></td>
+</tr>
+<tr>
+<td><code>context_compress</code></td>
+<td>上下文压缩统一入口</td>
+<td><code>should_compress</code> &#x2F; <code>compress</code> &#x2F; <code>get_history</code> &#x2F; <code>clear</code></td>
+</tr>
+<tr>
+<td><code>reflector</code></td>
+<td>反思器统一入口</td>
+<td><code>reflect_execution</code> &#x2F; <code>reflect_batch</code> &#x2F; <code>reflect_global</code> &#x2F; <code>get_insights</code> &#x2F; <code>get_patterns</code> &#x2F; <code>get_vetoed</code> &#x2F; <code>clear_veto</code></td>
+</tr>
+<tr>
+<td><code>failure_attribution</code></td>
+<td>失败归因统一入口</td>
+<td><code>attribute</code> &#x2F; <code>get_stats</code> &#x2F; <code>clear</code></td>
+</tr>
+<tr>
+<td><code>planner</code></td>
+<td>规划器统一入口</td>
+<td><code>initial_plan</code> &#x2F; <code>dynamic_plan</code> &#x2F; <code>get_history</code> &#x2F; <code>get_rejected</code> &#x2F; <code>add_rejected</code></td>
+</tr>
+<tr>
+<td><code>agent</code></td>
+<td>P-E-R Agent 统一入口</td>
+<td><code>run</code></td>
+</tr>
+</tbody></table>
+<h3 id="功能层统一入口（渗透测试相关）"><a href="#功能层统一入口（渗透测试相关）" class="headerlink" title="功能层统一入口（渗透测试相关）"></a>功能层统一入口（渗透测试相关）</h3><table>
+<thead>
+<tr>
+<th>工具名</th>
+<th>功能描述</th>
+<th>支持的操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>knowledge</code></td>
+<td>知识库统一入口</td>
+<td><code>search</code> &#x2F; <code>add</code> &#x2F; <code>get_detail</code> &#x2F; <code>export</code> &#x2F; <code>list_backups</code> &#x2F; <code>restore</code></td>
+</tr>
+<tr>
+<td><code>param_library</code></td>
+<td>参数库统一入口</td>
+<td><code>extract_js</code> &#x2F; <code>extract_response</code> &#x2F; <code>get_common</code> &#x2F; <code>get_for_api</code> &#x2F; <code>stats</code> &#x2F; <code>save</code></td>
+</tr>
+<tr>
+<td><code>browser</code></td>
+<td>浏览器操作统一入口</td>
+<td><code>navigate</code> &#x2F; <code>screenshot</code> &#x2F; <code>capture</code> &#x2F; <code>interactive</code> &#x2F; <code>list</code> &#x2F; <code>close</code></td>
+</tr>
+<tr>
+<td><code>session</code></td>
+<td>会话管理统一入口</td>
+<td><code>add</code> &#x2F; <code>get</code> &#x2F; <code>clear</code> &#x2F; <code>list</code></td>
+</tr>
+<tr>
+<td><code>llm</code></td>
+<td>LLM 操作统一入口</td>
+<td><code>analyze</code> &#x2F; <code>report</code> &#x2F; <code>enhance</code> &#x2F; <code>status</code> &#x2F; <code>set_key</code></td>
+</tr>
+<tr>
+<td><code>pentest_tools</code></td>
+<td>渗透测试工具统一入口</td>
+<td><code>list</code> &#x2F; <code>run</code> &#x2F; <code>recommend</code> &#x2F; <code>guidelines</code></td>
+</tr>
+<tr>
+<td><code>workflow</code></td>
+<td>工作流管理统一入口</td>
+<td><code>set_target</code> &#x2F; <code>status</code> &#x2F; <code>recommend</code> &#x2F; <code>plan</code> &#x2F; <code>finding</code> &#x2F; <code>complete</code></td>
+</tr>
+<tr>
+<td><code>file_operation</code></td>
+<td>文件操作统一入口</td>
+<td><code>write</code> &#x2F; <code>classify</code> &#x2F; <code>organize</code> &#x2F; <code>info</code></td>
+</tr>
+<tr>
+<td><code>dev_tools</code></td>
+<td>开发工具统一入口</td>
+<td><code>predev_check</code> &#x2F; <code>opt_record</code> &#x2F; <code>opt_list</code> &#x2F; <code>opt_view</code> &#x2F; <code>dev_start</code> &#x2F; <code>dev_complete</code> &#x2F; <code>dev_status</code> &#x2F; <code>dev_register</code> &#x2F; <code>dev_list</code></td>
+</tr>
+<tr>
+<td><code>mcp_log</code></td>
+<td>MCP 日志统一入口</td>
+<td><code>list</code> &#x2F; <code>stats</code> &#x2F; <code>session</code> &#x2F; <code>clear</code></td>
+</tr>
+</tbody></table>
+<h3 id="专项工具统一入口"><a href="#专项工具统一入口" class="headerlink" title="专项工具统一入口"></a>专项工具统一入口</h3><table>
+<thead>
+<tr>
+<th>工具名</th>
+<th>功能描述</th>
+<th>支持的操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>miniprogram_decompiler</code></td>
+<td>微信小程序反编译工具</td>
+<td>解包 &#x2F; 扫描 &#x2F; 提取 API &#x2F; 分析签名</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="实现模式"><a href="#实现模式" class="headerlink" title="实现模式"></a>实现模式</h2><h3 id="命令模式（Command-Pattern）"><a href="#命令模式（Command-Pattern）" class="headerlink" title="命令模式（Command Pattern）"></a>命令模式（Command Pattern）</h3><p>每个统一入口都是一个命令处理器，通过 <code>action</code> 参数区分不同的子命令：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@self._logged_tool(<span class="hljs-params">name=<span class="hljs-string">&#x27;context&#x27;</span>, description=<span class="hljs-string">&#x27;【防遗忘统一入口】上下文管理&#x27;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">context</span>(<span class="hljs-params"></span><br><span class="hljs-params">    action: <span class="hljs-built_in">str</span> = Field(<span class="hljs-params">description=<span class="hljs-string">&#x27;操作类型：get_planner_summary/get_reflector_summary/add_objective/clear&#x27;</span></span>),</span><br><span class="hljs-params">    objective: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;长期目标（add_objective 时必填）&#x27;</span></span>),</span><br><span class="hljs-params">    goal: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;长期目标别名&#x27;</span></span>)</span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;防遗忘统一入口 - 管理上下文和防止遗忘&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-variable language_">self</span>.context_manager:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：context_manager 未初始化&quot;</span><br>        <br>        <span class="hljs-keyword">if</span> goal <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> objective:<br>            objective = goal<br>        <br>        <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;get_planner_summary&#x27;</span>:<br>            <span class="hljs-comment"># 处理子命令 1</span><br>            summary = <span class="hljs-variable language_">self</span>.context_manager.get_planner_summary()<br>            <span class="hljs-keyword">return</span> format_summary(summary)<br>        <br>        <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;get_reflector_summary&#x27;</span>:<br>            <span class="hljs-comment"># 处理子命令 2</span><br>            summary = <span class="hljs-variable language_">self</span>.context_manager.get_reflector_summary()<br>            <span class="hljs-keyword">return</span> format_summary(summary)<br>        <br>        <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;add_objective&#x27;</span>:<br>            <span class="hljs-comment"># 处理子命令 3（需要额外参数）</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> objective:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：add_objective 操作需要 objective 参数&quot;</span><br>            <span class="hljs-variable language_">self</span>.context_manager.add_long_term_objective(objective)<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;✅ 长期目标已添加：<span class="hljs-subst">&#123;objective&#125;</span>&quot;</span><br>        <br>        <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;clear&#x27;</span>:<br>            <span class="hljs-comment"># 处理子命令 4</span><br>            <span class="hljs-variable language_">self</span>.context_manager.clear_planner_context()<br>            <span class="hljs-variable language_">self</span>.context_manager.clear_reflector_context()<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;✅ 所有上下文已清空&quot;</span><br>        <br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：未知的操作类型 &#x27;<span class="hljs-subst">&#123;action&#125;</span>&#x27;&quot;</span><br>    <br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(e)&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="参数验证模式"><a href="#参数验证模式" class="headerlink" title="参数验证模式"></a>参数验证模式</h3><p>统一入口通过参数验证确保子命令的正确执行：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@self._logged_tool(<span class="hljs-params">name=<span class="hljs-string">&#x27;planner&#x27;</span>, description=<span class="hljs-string">&#x27;【逻辑断层统一入口】规划器&#x27;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">planner</span>(<span class="hljs-params"></span><br><span class="hljs-params">    action: <span class="hljs-built_in">str</span> = Field(<span class="hljs-params">description=<span class="hljs-string">&#x27;操作类型：initial_plan/dynamic_plan/get_history/get_rejected/add_rejected&#x27;</span></span>),</span><br><span class="hljs-params">    goal: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;目标（initial_plan/dynamic_plan 时必填）&#x27;</span></span>),</span><br><span class="hljs-params">    context: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;上下文（JSON 格式字符串）&#x27;</span></span>),</span><br><span class="hljs-params">    strategy_name: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;策略名称（add_rejected 时必填）&#x27;</span></span>),</span><br><span class="hljs-params">    reason: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>] = Field(<span class="hljs-params">default=<span class="hljs-literal">None</span>, description=<span class="hljs-string">&#x27;原因（add_rejected 时必填）&#x27;</span></span>)</span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;逻辑断层统一入口 - 规划器操作&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">try</span>:<br>        <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;initial_plan&#x27;</span>:<br>            <span class="hljs-comment"># 验证必填参数</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> goal:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：initial_plan 操作需要 goal 参数&quot;</span><br>            ctx = json.loads(context) <span class="hljs-keyword">if</span> context <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br>            result = <span class="hljs-variable language_">self</span>.planner.initial_plan(goal, ctx)<br>            <span class="hljs-keyword">return</span> format_result(result)<br>        <br>        <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;add_rejected&#x27;</span>:<br>            <span class="hljs-comment"># 验证多个必填参数</span><br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> strategy_name <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> reason:<br>                <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：add_rejected 操作需要 strategy_name 和 reason 参数&quot;</span><br>            <span class="hljs-variable language_">self</span>.planner.add_rejected_strategy(strategy_name, reason)<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;✅ 策略已标记为拒绝：<span class="hljs-subst">&#123;strategy_name&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="结果格式化模式"><a href="#结果格式化模式" class="headerlink" title="结果格式化模式"></a>结果格式化模式</h3><p>统一入口使用一致的格式返回结果：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">format_result</span>(<span class="hljs-params">result: <span class="hljs-type">Dict</span></span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-string">&quot;&quot;&quot;统一的结果格式化&quot;&quot;&quot;</span><br>    lines = [<span class="hljs-string">&quot;=&quot;</span> * <span class="hljs-number">70</span>, <span class="hljs-string">&quot;📋 标题&quot;</span>, <span class="hljs-string">&quot;=&quot;</span> * <span class="hljs-number">70</span>]<br>    <br>    <span class="hljs-comment"># 添加关键指标</span><br>    lines.append(<span class="hljs-string">f&quot;指标 1: <span class="hljs-subst">&#123;result.get(<span class="hljs-string">&#x27;key_metric_1&#x27;</span>)&#125;</span>&quot;</span>)<br>    lines.append(<span class="hljs-string">f&quot;指标 2: <span class="hljs-subst">&#123;result.get(<span class="hljs-string">&#x27;key_metric_2&#x27;</span>)&#125;</span>&quot;</span>)<br>    <br>    <span class="hljs-comment"># 添加列表内容</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;items&#x27;</span> <span class="hljs-keyword">in</span> result:<br>        lines.append(<span class="hljs-string">&quot;\n【列表内容】:&quot;</span>)<br>        <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> result[<span class="hljs-string">&#x27;items&#x27;</span>]:<br>            lines.append(<span class="hljs-string">f&quot;  - <span class="hljs-subst">&#123;item&#125;</span>&quot;</span>)<br>    <br>    lines.append(<span class="hljs-string">&quot;=&quot;</span> * <span class="hljs-number">70</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;\n&quot;</span>.join(lines)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="关键技术细节"><a href="#关键技术细节" class="headerlink" title="关键技术细节"></a>关键技术细节</h2><h3 id="工具注册装饰器"><a href="#工具注册装饰器" class="headerlink" title="工具注册装饰器"></a>工具注册装饰器</h3><p>统一入口通过装饰器自动注册到 MCP 服务器：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_logged_tool</span>(<span class="hljs-params">self, name, description</span>):<br>    <span class="hljs-string">&quot;&quot;&quot;带日志记录的工具装饰器工厂&quot;&quot;&quot;</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">decorator</span>(<span class="hljs-params">func</span>):<br>        <span class="hljs-comment"># 1. 创建带日志包装的工具函数</span><br>        logged_func = <span class="hljs-variable language_">self</span>._create_logged_tool(name, func)<br>        <br>        <span class="hljs-comment"># 2. 注册到 FastMCP 服务器</span><br>        <span class="hljs-variable language_">self</span>.server.tool(name=name, description=description)(logged_func)<br>        <br>        <span class="hljs-comment"># 3. 自动记录到 registered_tools 字典</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">hasattr</span>(<span class="hljs-variable language_">self</span>, <span class="hljs-string">&#x27;registered_tools&#x27;</span>):<br>            <span class="hljs-variable language_">self</span>.registered_tools = &#123;&#125;<br>        <span class="hljs-variable language_">self</span>.registered_tools[name] = logged_func<br>        <br>        <span class="hljs-keyword">return</span> logged_func<br>    <span class="hljs-keyword">return</span> decorator<br></code></pre></td></tr></table></figure>
+
+<h3 id="ToolRouter-的参数映射"><a href="#ToolRouter-的参数映射" class="headerlink" title="ToolRouter 的参数映射"></a>ToolRouter 的参数映射</h3><p>统一入口通过 ToolRouter 进行参数映射，解决 Planner 与工具之间的参数名不匹配问题：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_map_tool_arguments</span>(<span class="hljs-params">self, tool_name: <span class="hljs-built_in">str</span>, args: <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]</span>) -&gt; <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:<br>    <span class="hljs-string">&quot;&quot;&quot;根据工具名映射参数&quot;&quot;&quot;</span><br>    mapped_args = args.copy()<br>    tool_name_lower = tool_name.lower()<br>    <br>    <span class="hljs-comment"># 处理 target_url -&gt; url（browser, http_request 等）</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;target_url&#x27;</span> <span class="hljs-keyword">in</span> mapped_args:<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;browser&#x27;</span> <span class="hljs-keyword">in</span> tool_name_lower <span class="hljs-keyword">or</span> <span class="hljs-string">&#x27;http_request&#x27;</span> <span class="hljs-keyword">in</span> tool_name_lower:<br>            mapped_args[<span class="hljs-string">&#x27;url&#x27;</span>] = mapped_args.pop(<span class="hljs-string">&#x27;target_url&#x27;</span>)<br>    <br>    <span class="hljs-comment"># 处理 target -&gt; goal（ai_pentest）</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;target&#x27;</span> <span class="hljs-keyword">in</span> mapped_args:<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;ai_pentest&#x27;</span> <span class="hljs-keyword">in</span> tool_name_lower:<br>            mapped_args[<span class="hljs-string">&#x27;goal&#x27;</span>] = mapped_args.pop(<span class="hljs-string">&#x27;target&#x27;</span>)<br>    <br>    <span class="hljs-keyword">return</span> mapped_args<br></code></pre></td></tr></table></figure>
+
+<h3 id="异步调用与重试机制"><a href="#异步调用与重试机制" class="headerlink" title="异步调用与重试机制"></a>异步调用与重试机制</h3><p>统一入口支持异步调用和自动重试：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">call_tool</span>(<span class="hljs-params"></span><br><span class="hljs-params">    self,</span><br><span class="hljs-params">    tool_name: <span class="hljs-built_in">str</span>,</span><br><span class="hljs-params">    args: <span class="hljs-type">Optional</span>[<span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]] = <span class="hljs-literal">None</span>,</span><br><span class="hljs-params">    max_retries: <span class="hljs-built_in">int</span> = <span class="hljs-number">3</span>,</span><br><span class="hljs-params">    timeout: <span class="hljs-built_in">int</span> = <span class="hljs-number">300</span></span><br><span class="hljs-params"></span>) -&gt; <span class="hljs-type">Dict</span>[<span class="hljs-built_in">str</span>, <span class="hljs-type">Any</span>]:<br>    <span class="hljs-string">&quot;&quot;&quot;调用 MCP 工具（带重试机制）&quot;&quot;&quot;</span><br>    <br>    tool_func = <span class="hljs-variable language_">self</span>.registered_tools[tool_name]<br>    args = args <span class="hljs-keyword">or</span> &#123;&#125;<br>    <br>    <span class="hljs-keyword">for</span> attempt <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, max_retries + <span class="hljs-number">1</span>):<br>        <span class="hljs-keyword">try</span>:<br>            <span class="hljs-keyword">if</span> asyncio.iscoroutinefunction(tool_func):<br>                result = <span class="hljs-keyword">await</span> asyncio.wait_for(<br>                    tool_func(**args),<br>                    timeout=timeout<br>                )<br>            <span class="hljs-keyword">else</span>:<br>                result = <span class="hljs-keyword">await</span> asyncio.wait_for(<br>                    asyncio.get_event_loop().run_in_executor(<br>                        <span class="hljs-literal">None</span>, <span class="hljs-keyword">lambda</span>: tool_func(**args)<br>                    ),<br>                    timeout=timeout<br>                )<br>            <br>            <span class="hljs-keyword">return</span> result<br>        <br>        <span class="hljs-keyword">except</span> asyncio.TimeoutError:<br>            <span class="hljs-keyword">if</span> attempt == max_retries:<br>                <span class="hljs-keyword">return</span> &#123;<br>                    <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">False</span>,<br>                    <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">f&quot;工具调用超时：<span class="hljs-subst">&#123;tool_name&#125;</span> (&gt;<span class="hljs-subst">&#123;timeout&#125;</span>s)&quot;</span>,<br>                    <span class="hljs-string">&quot;attempts&quot;</span>: attempt<br>                &#125;<br>            <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">1</span> * attempt)  <span class="hljs-comment"># 指数退避</span><br>        <br>        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>            <span class="hljs-keyword">if</span> attempt == max_retries:<br>                <span class="hljs-keyword">return</span> &#123;<br>                    <span class="hljs-string">&quot;success&quot;</span>: <span class="hljs-literal">False</span>,<br>                    <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">f&quot;工具执行失败：<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(e)&#125;</span>&quot;</span>,<br>                    <span class="hljs-string">&quot;attempts&quot;</span>: attempt<br>                &#125;<br>            <span class="hljs-keyword">await</span> asyncio.sleep(<span class="hljs-number">1</span> * attempt)<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设计优势"><a href="#设计优势" class="headerlink" title="设计优势"></a>设计优势</h2><h3 id="减少工具数量"><a href="#减少工具数量" class="headerlink" title="减少工具数量"></a>减少工具数量</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>工具数量</th>
+<th>Agent 选择难度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>传统方式</td>
+<td>100+ 个独立工具</td>
+<td>高（容易选错）</td>
+</tr>
+<tr>
+<td>统一入口</td>
+<td>17 个统一入口</td>
+<td>低（清晰明确）</td>
+</tr>
+</tbody></table>
+<p><strong>工具数量减少：约 85%</strong></p>
+<h3 id="提高可维护性"><a href="#提高可维护性" class="headerlink" title="提高可维护性"></a>提高可维护性</h3><p><strong>传统方式</strong>：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 修改搜索逻辑需要改 3 个地方</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search_knowledge_v1</span>(<span class="hljs-params">...</span>): ...<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search_knowledge_v2</span>(<span class="hljs-params">...</span>): ...<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search_knowledge_by_category</span>(<span class="hljs-params">...</span>): ...<br></code></pre></td></tr></table></figure>
+
+<p><strong>统一入口方式</strong>：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 修改搜索逻辑只需改 1 个地方</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">knowledge</span>(<span class="hljs-params">action: <span class="hljs-built_in">str</span>, ...</span>):<br>    <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;search&#x27;</span>:<br>        <span class="hljs-comment"># 统一的搜索逻辑</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="增强一致性"><a href="#增强一致性" class="headerlink" title="增强一致性"></a>增强一致性</h3><p>所有统一入口遵循相同的设计模式：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 1. 统一的参数命名</span><br>action: <span class="hljs-built_in">str</span> = Field(description=<span class="hljs-string">&#x27;操作类型&#x27;</span>)<br><br><span class="hljs-comment"># 2. 统一的错误处理</span><br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment"># 业务逻辑</span><br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(e)&#125;</span>&quot;</span><br><br><span class="hljs-comment"># 3. 统一的结果格式</span><br>lines = [<span class="hljs-string">&quot;=&quot;</span> * <span class="hljs-number">70</span>, <span class="hljs-string">&quot;标题&quot;</span>, <span class="hljs-string">&quot;=&quot;</span> * <span class="hljs-number">70</span>]<br><span class="hljs-keyword">return</span> <span class="hljs-string">&quot;\n&quot;</span>.join(lines)<br></code></pre></td></tr></table></figure>
+
+<h3 id="便于扩展"><a href="#便于扩展" class="headerlink" title="便于扩展"></a>便于扩展</h3><p>添加新子操作只需在现有统一入口中添加分支：</p>
+<figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-meta">@self._logged_tool(<span class="hljs-params">name=<span class="hljs-string">&#x27;context&#x27;</span>, description=<span class="hljs-string">&#x27;【防遗忘统一入口】上下文管理&#x27;</span></span>)</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">def</span> <span class="hljs-title function_">context</span>(<span class="hljs-params">action: <span class="hljs-built_in">str</span>, ...</span>) -&gt; <span class="hljs-built_in">str</span>:<br>    <span class="hljs-comment"># 原有操作</span><br>    <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;get_planner_summary&#x27;</span>: ...<br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;get_reflector_summary&#x27;</span>: ...<br>    <br>    <span class="hljs-comment"># ✅ 新增操作（不影响现有功能）</span><br>    <span class="hljs-keyword">elif</span> action == <span class="hljs-string">&#x27;export_context&#x27;</span>:<br>        <span class="hljs-comment"># 新功能</span><br>        <span class="hljs-keyword">pass</span><br>    <br>    <span class="hljs-comment"># ✅ 继续添加更多操作...</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="设计模式总结"><a href="#设计模式总结" class="headerlink" title="设计模式总结"></a>设计模式总结</h2><h3 id="命令模式（Command-Pattern）-1"><a href="#命令模式（Command-Pattern）-1" class="headerlink" title="命令模式（Command Pattern）"></a>命令模式（Command Pattern）</h3><ul>
+<li><strong>应用</strong>：通过 <code>action</code> 参数区分不同子操作</li>
+<li><strong>优势</strong>：将请求封装为对象，支持参数化和队列化</li>
+</ul>
+<h3 id="适配器模式（Adapter-Pattern）"><a href="#适配器模式（Adapter-Pattern）" class="headerlink" title="适配器模式（Adapter Pattern）"></a>适配器模式（Adapter Pattern）</h3><ul>
+<li><strong>应用</strong>：ToolRouter 适配 Planner 与 MCP 工具</li>
+<li><strong>优势</strong>：解决接口不匹配问题</li>
+</ul>
+<h3 id="单例模式（Singleton-Pattern）"><a href="#单例模式（Singleton-Pattern）" class="headerlink" title="单例模式（Singleton Pattern）"></a>单例模式（Singleton Pattern）</h3><ul>
+<li><strong>应用</strong>：各组件（context_manager, planner, reflector 等）全局唯一</li>
+<li><strong>优势</strong>：确保状态一致性</li>
+</ul>
+<h3 id="工厂模式（Factory-Pattern）"><a href="#工厂模式（Factory-Pattern）" class="headerlink" title="工厂模式（Factory Pattern）"></a>工厂模式（Factory Pattern）</h3><ul>
+<li><strong>应用</strong>：<code>_logged_tool</code> 装饰器工厂</li>
+<li><strong>优势</strong>：统一工具注册逻辑</li>
+</ul>
+<h3 id="策略模式（Strategy-Pattern）"><a href="#策略模式（Strategy-Pattern）" class="headerlink" title="策略模式（Strategy Pattern）"></a>策略模式（Strategy Pattern）</h3><ul>
+<li><strong>应用</strong>：Planner 根据上下文选择不同规划策略</li>
+<li><strong>优势</strong>：灵活切换算法</li>
+</ul>
+<h3 id="观察者模式（Observer-Pattern）"><a href="#观察者模式（Observer-Pattern）" class="headerlink" title="观察者模式（Observer Pattern）"></a>观察者模式（Observer Pattern）</h3><ul>
+<li><strong>应用</strong>：Reflector 观察执行结果并反思</li>
+<li><strong>优势</strong>：解耦观察者和被观察者</li>
+</ul>
+<hr>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ✅ 好的命名：清晰表达功能领域</span><br><span class="hljs-string">&#x27;context&#x27;</span>      <span class="hljs-comment"># 上下文管理</span><br><span class="hljs-string">&#x27;reflector&#x27;</span>    <span class="hljs-comment"># 反思器</span><br><span class="hljs-string">&#x27;planner&#x27;</span>      <span class="hljs-comment"># 规划器</span><br><span class="hljs-string">&#x27;knowledge&#x27;</span>    <span class="hljs-comment"># 知识库</span><br><span class="hljs-string">&#x27;param_library&#x27;</span> <span class="hljs-comment"># 参数库</span><br><br><span class="hljs-comment"># ❌ 避免模糊命名</span><br><span class="hljs-string">&#x27;tool1&#x27;</span>        <span class="hljs-comment"># 无意义</span><br><span class="hljs-string">&#x27;manager&#x27;</span>      <span class="hljs-comment"># 太宽泛</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="Action-参数设计"><a href="#Action-参数设计" class="headerlink" title="Action 参数设计"></a>Action 参数设计</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ✅ 使用枚举式字符串</span><br>action: <span class="hljs-built_in">str</span> = Field(<br>    description=<span class="hljs-string">&#x27;操作类型：search/add/get_detail/export&#x27;</span><br>)<br><br><span class="hljs-comment"># ✅ 在 docstring 中明确说明</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">知识库统一入口 - 整合 6 个知识库相关工具</span><br><span class="hljs-string"></span><br><span class="hljs-string">操作类型:</span><br><span class="hljs-string">  - search: 搜索知识</span><br><span class="hljs-string">  - add: 添加知识</span><br><span class="hljs-string">  - get_detail: 获取详情</span><br><span class="hljs-string">  - export: 导出知识库</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ✅ 清晰标注必填参数</span><br><span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;add&#x27;</span>:<br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> content:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;错误：add 操作需要 content 参数&quot;</span><br><br><span class="hljs-comment"># ✅ 使用类型提示</span><br>action: <span class="hljs-built_in">str</span><br>query: <span class="hljs-type">Optional</span>[<span class="hljs-built_in">str</span>]<br>limit: <span class="hljs-built_in">int</span> = <span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><figure class="hljs highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># ✅ 统一的错误处理模式</span><br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment"># 业务逻辑</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> <span class="hljs-variable language_">self</span>.component:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：<span class="hljs-subst">&#123;component_name&#125;</span> 未初始化&quot;</span><br>    <br>    <span class="hljs-comment"># 参数验证</span><br>    <span class="hljs-keyword">if</span> action == <span class="hljs-string">&#x27;xxx&#x27;</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> required_param:<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：<span class="hljs-subst">&#123;action&#125;</span>操作需要<span class="hljs-subst">&#123;param_name&#125;</span>参数&quot;</span><br>    <br>    <span class="hljs-comment"># 执行逻辑</span><br>    result = <span class="hljs-variable language_">self</span>.component.do_something()<br>    <span class="hljs-keyword">return</span> format_result(result)<br><br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;错误：<span class="hljs-subst">&#123;<span class="hljs-built_in">str</span>(e)&#125;</span>&quot;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h2><figure class="hljs highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">┌─────────────────────────────────────────────────────────┐<br>│                    Agent (Executor)                      │<br>└────────────────────┬────────────────────────────────────┘<br>                     │<br>                     ▼<br>┌─────────────────────────────────────────────────────────┐<br>│                    ToolRouter                            │<br>│  • 工具路由  • 参数映射  • 重试机制  • 超时控制          │<br>└────────────┬─────────────────────────────────┬──────────┘<br>             │                                 │<br>             ▼                                 ▼<br>    ┌─────────────────┐              ┌─────────────────┐<br>    │  核心层统一入口  │              │  功能层统一入口  │<br>    ├─────────────────┤              ├─────────────────┤<br>    │ <span class="hljs-built_in">context</span>         │              │ knowledge       │<br>    │ context_compress│              │ param_library   │<br>    │ reflector       │              │ <span class="hljs-keyword">browser </span>        │<br>    │ failure_attrib. │              │ session         │<br>    │ planner         │              │ <span class="hljs-keyword">llm </span>            │<br>    │ agent           │              │ pentest_tools   │<br>    └─────────────────┘              │ workflow        │<br>                                     │ file_operation  │<br>                                     │ dev_tools       │<br>                                     │ mcp_log         │<br>                                     └─────────────────┘<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>MCP 架构中的统一入口设计体现了以下核心思想：</p>
+<ol>
+<li><strong>化繁为简</strong>：将 100+ 个工具精简为 17 个统一入口</li>
+<li><strong>模式统一</strong>：所有统一入口遵循相同的设计模式</li>
+<li><strong>易于扩展</strong>：添加新功能不影响现有代码</li>
+<li><strong>高内聚低耦合</strong>：每个统一入口负责一个功能领域</li>
+<li><strong>用户体验优先</strong>：减少 Agent 的选择负担，提高调用准确性</li>
+</ol>
+<p>这种设计模式不仅适用于 MCP 架构，也可以应用到其他需要管理大量工具&#x2F;命令的系统中。</p>
+<hr>
+<p><strong>文档生成时间</strong>: 2026-03-11<br><strong>文档版本</strong>: v1.0<br><strong>作者</strong>: MCP Architecture Team</p>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fas fa-tags"></i>学习笔记</a>
+        
+        <a class="post-tag button" href="/tags/%E5%BC%80%E5%8F%91/" rel="tag"><i class="fas fa-tags"></i>开发</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/" rel="next" title="AI Pentest Agent 架构分析报告"><i class="fas fa-angle-left"></i><span class="nav-title">AI Pentest Agent 架构分析报告</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control"/>
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.jpg" alt="Gin">
+  
+  <h1 class="author-name">Gin</h1>
+  <h2 class="author-description">路的尽头终会是温柔的月光</h2>
+  <div class="site-count">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目錄</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#MCP-%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-text">MCP 统一入口设计思路</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%F0%9F%93%8B-%E7%9B%AE%E5%BD%95"><span class="toc-text">📋 目录</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E5%8A%A8%E6%9C%BA"><span class="toc-text">设计动机</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E9%97%AE%E9%A2%98-1%EF%BC%9A%E5%B7%A5%E5%85%B7%E6%B3%9B%E6%BB%A5"><span class="toc-text">问题 1：工具泛滥</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E9%97%AE%E9%A2%98-2%EF%BC%9A%E5%8A%9F%E8%83%BD%E5%88%86%E6%95%A3"><span class="toc-text">问题 2：功能分散</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E9%97%AE%E9%A2%98-3%EF%BC%9A%E6%8E%A5%E5%8F%A3%E4%B8%8D%E4%B8%80%E8%87%B4"><span class="toc-text">问题 3：接口不一致</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">统一入口的定义</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%AF%B9%E6%AF%94%E7%A4%BA%E4%BE%8B"><span class="toc-text">对比示例</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E4%BC%A0%E7%BB%9F%E6%96%B9%E5%BC%8F%EF%BC%9A%E5%A4%9A%E4%B8%AA%E7%8B%AC%E7%AB%8B%E5%B7%A5%E5%85%B7"><span class="toc-text">传统方式：多个独立工具</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E6%96%B9%E5%BC%8F%EF%BC%9A1-%E4%B8%AA%E5%B7%A5%E5%85%B7-action-%E5%8F%82%E6%95%B0"><span class="toc-text">统一入口方式：1 个工具 + action 参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%9E%B6%E6%9E%84%E5%88%86%E5%B1%82"><span class="toc-text">架构分层</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%A0%B8%E5%BF%83%E5%B1%82%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%EF%BC%88%E9%80%BB%E8%BE%91%E6%96%AD%E5%B1%82%E7%9B%B8%E5%85%B3%EF%BC%89"><span class="toc-text">核心层统一入口（逻辑断层相关）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%8A%9F%E8%83%BD%E5%B1%82%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%EF%BC%88%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%9B%B8%E5%85%B3%EF%BC%89"><span class="toc-text">功能层统一入口（渗透测试相关）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%B8%93%E9%A1%B9%E5%B7%A5%E5%85%B7%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3"><span class="toc-text">专项工具统一入口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%A8%A1%E5%BC%8F"><span class="toc-text">实现模式</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%88Command-Pattern%EF%BC%89"><span class="toc-text">命令模式（Command Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81%E6%A8%A1%E5%BC%8F"><span class="toc-text">参数验证模式</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E7%BB%93%E6%9E%9C%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%A8%A1%E5%BC%8F"><span class="toc-text">结果格式化模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%85%B3%E9%94%AE%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="toc-text">关键技术细节</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%B7%A5%E5%85%B7%E6%B3%A8%E5%86%8C%E8%A3%85%E9%A5%B0%E5%99%A8"><span class="toc-text">工具注册装饰器</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#ToolRouter-%E7%9A%84%E5%8F%82%E6%95%B0%E6%98%A0%E5%B0%84"><span class="toc-text">ToolRouter 的参数映射</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%BC%82%E6%AD%A5%E8%B0%83%E7%94%A8%E4%B8%8E%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="toc-text">异步调用与重试机制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8A%BF"><span class="toc-text">设计优势</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%87%8F%E5%B0%91%E5%B7%A5%E5%85%B7%E6%95%B0%E9%87%8F"><span class="toc-text">减少工具数量</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E6%8F%90%E9%AB%98%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="toc-text">提高可维护性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%A2%9E%E5%BC%BA%E4%B8%80%E8%87%B4%E6%80%A7"><span class="toc-text">增强一致性</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E4%BE%BF%E4%BA%8E%E6%89%A9%E5%B1%95"><span class="toc-text">便于扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93"><span class="toc-text">设计模式总结</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%88Command-Pattern%EF%BC%89-1"><span class="toc-text">命令模式（Command Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88Adapter-Pattern%EF%BC%89"><span class="toc-text">适配器模式（Adapter Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%88Singleton-Pattern%EF%BC%89"><span class="toc-text">单例模式（Singleton Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%88Factory-Pattern%EF%BC%89"><span class="toc-text">工厂模式（Factory Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%EF%BC%88Strategy-Pattern%EF%BC%89"><span class="toc-text">策略模式（Strategy Pattern）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88Observer-Pattern%EF%BC%89"><span class="toc-text">观察者模式（Observer Pattern）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="toc-text">最佳实践</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-text">命名规范</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Action-%E5%8F%82%E6%95%B0%E8%AE%BE%E8%AE%A1"><span class="toc-text">Action 参数设计</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="toc-text">参数验证</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="toc-text">错误处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-text">架构图</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交鏈接</p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:gintvt1314@gmail.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://github.com/GinTvT" target="_blank">GitHub</a></li>
+        
+        <li><i class="fab fa-weibo"></i><a href="https://weibo.com/u/7409422332" target="_blank">Weibo</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情鏈接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #FF0000;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到頂部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Gin</span><span class="year"><i class="far fa-copyright"></i>2023 - 2026</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站點訪問量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站點用戶數" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="頁面訪問量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          托管于<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

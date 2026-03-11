@@ -10,15 +10,30 @@
   <rights>All rights reserved 2026, Gin</rights>
   <subtitle>Security Research</subtitle>
   <title>GinTvT-清酒温茶</title>
-  <updated>2026-03-11T08:34:18.538Z</updated>
+  <updated>2026-03-11T08:41:24.445Z</updated>
   <entry>
     <author>
       <name>Gin</name>
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="AI Agent" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/AI-Agent/"/>
-    <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
+    <id>https://gintvt.github.io/2026/03/11/MCP%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/</id>
+    <link href="https://gintvt.github.io/2026/03/11/MCP%E7%BB%9F%E4%B8%80%E5%85%A5%E5%8F%A3%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF/"/>
+    <published>2026-03-10T19:55:07.000Z</published>
+    <summary>MCP 统一入口设计思路</summary>
+    <title>MCP 统一入口设计思路</title>
+    <updated>2026-03-11T08:41:24.445Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Gin</name>
+    </author>
+    <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="AI Agent" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/AI-Agent/"/>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     <id>https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/</id>
     <link href="https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/"/>
     <published>2026-03-10T19:55:07.000Z</published>
@@ -32,8 +47,8 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="代码审计" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
-    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <category term="代码审计" scheme="https://gintvt.github.io/tags/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/</id>
     <link href="https://gintvt.github.io/2025/05/23/NET%E5%AE%A1%E8%AE%A1%E8%AE%B0%E5%BD%95/"/>
     <published>2025-05-23T05:55:07.000Z</published>
@@ -47,8 +62,8 @@
     </author>
     <category term="技术" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
     <category term="开发" scheme="https://gintvt.github.io/categories/%E6%8A%80%E6%9C%AF/%E5%BC%80%E5%8F%91/"/>
-    <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     <category term="学习笔记" scheme="https://gintvt.github.io/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <category term="开发" scheme="https://gintvt.github.io/tags/%E5%BC%80%E5%8F%91/"/>
     <id>https://gintvt.github.io/2023/05/12/shellcode%E5%BC%80%E5%8F%91/</id>
     <link href="https://gintvt.github.io/2023/05/12/shellcode%E5%BC%80%E5%8F%91/"/>
     <published>2023-05-12T05:55:07.000Z</published>

@@ -10,7 +10,7 @@
   <rights>All rights reserved 2026, Gin</rights>
   <subtitle>Security Research</subtitle>
   <title>GinTvT-清酒温茶</title>
-  <updated>2026-03-10T20:04:56.033Z</updated>
+  <updated>2026-03-11T08:34:18.538Z</updated>
   <entry>
     <author>
       <name>Gin</name>
@@ -22,9 +22,9 @@
     <id>https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/</id>
     <link href="https://gintvt.github.io/2026/03/11/AI%E6%B8%97%E9%80%8F%E6%A0%B8%E5%BF%83%E5%8A%9F%E8%83%BD%E6%96%87%E6%A1%A3/"/>
     <published>2026-03-10T19:55:07.000Z</published>
-    <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
+    <summary>基于朋友的开发思路，我进行了一些改进</summary>
     <title>AI Pentest Agent 架构分析报告</title>
-    <updated>2026-03-10T20:04:56.033Z</updated>
+    <updated>2026-03-11T08:34:18.538Z</updated>
   </entry>
   <entry>
     <author>
@@ -71,6 +71,6 @@
     <published>2023-03-10T19:55:07.000Z</published>
     <summary>Web 安全学习入门教程，带你走进网络安全的世界</summary>
     <title>Web 安全入门指南</title>
-    <updated>2026-03-11T08:05:39.397Z</updated>
+    <updated>2026-03-11T08:24:04.645Z</updated>
   </entry>
 </feed>

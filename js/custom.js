@@ -149,4 +149,88 @@ $(window).on('load', function() {
     setTimeout(startDevToolsCheck, 2000); // 延迟2秒开始检测
 });
 
+// 下雪特效
+function createSnow() {
+    const snowContainer = document.createElement('div');
+    snowContainer.id = 'snow-container';
+    snowContainer.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        overflow: hidden;
+    `;
+    document.body.appendChild(snowContainer);
+
+    const snowflakeCount = 50; // 雪花数量
+    
+    for (let i = 0; i < snowflakeCount; i++) {
+        createSnowflake(snowContainer);
+    }
+}
+
+function createSnowflake(container) {
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    
+    // 随机大小
+    const size = Math.random() * 4 + 2;
+    
+    // 随机位置
+    const startX = Math.random() * 100;
+    
+    // 随机动画时长
+    const duration = Math.random() * 5 + 5;
+    
+    // 随机延迟
+    const delay = Math.random() * 5;
+    
+    snowflake.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        top: -10px;
+        left: ${startX}%;
+        animation: snowfall ${duration}s linear ${delay}s infinite;
+        opacity: ${Math.random() * 0.6 + 0.4};
+    `;
+    
+    container.appendChild(snowflake);
+}
+
+// 添加雪花动画CSS
+const snowStyle = document.createElement('style');
+snowStyle.textContent = `
+    @keyframes snowfall {
+        0% {
+            transform: translateY(-10px) translateX(0);
+            opacity: 1;
+        }
+        25% {
+            transform: translateY(25vh) translateX(10px);
+        }
+        50% {
+            transform: translateY(50vh) translateX(-10px);
+        }
+        75% {
+            transform: translateY(75vh) translateX(10px);
+        }
+        100% {
+            transform: translateY(100vh) translateX(0);
+            opacity: 0.3;
+        }
+    }
+`;
+document.head.appendChild(snowStyle);
+
+// 页面加载后启动下雪特效
+$(document).ready(function() {
+    createSnow();
+});
+
 })(jQuery);

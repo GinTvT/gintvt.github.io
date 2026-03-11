@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
+    <!-- DNS 预解析和预连接 -->
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    
+    
     <meta name="theme-color" content="#FF0000">
     <meta name="msapplication-TileColor" content="#FF0000">
     
@@ -37,7 +44,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
     
     
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     
     <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
@@ -47,24 +54,24 @@
 <link rel="stylesheet" type="text/css" href="/css/post.css">
 
     <link rel="stylesheet" type="text/css" href="/css/custom.css">
-    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
-    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <script defer type="text/javascript" src="/js/util.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/highlight.js@10.7.3/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/css/lightgallery-bundle.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/util@1.0.0/dist/util.min.js"></script>
     <script defer type="text/javascript" src="/js/clipboard.min.js"></script>
-    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
-    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
-    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
-    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/scroll-spy@1.0.0/dist/scroll-spy.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/js/all.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/plugins/fullscreen/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/plugins/hash/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/plugins/pager/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/plugins/thumbnail/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/plugins/zoom/lg-zoom.min.js"></script>
     
-    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/senjuku@1.0.0/busuanzi.pure.mini.js"></script>
     
     
-    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
     <script type="text/javascript">
     $(document).ready(function () {
       var searchPath = "search.xml";
@@ -85,11 +92,11 @@
       if (els.length) {
         // Enabled Hexo highlight line number.
         $(els).each(function (i, e) {
-          // $(e).before("<button class=\"copy button\">复制</button>");
+          // $(e).before("<button class=\"copy button\">複製</button>");
           $(e).before([
             "<div class=\"code-titlebar\">",
               "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+                "<button class=\"copy\" aria-label=\"複製\"><i class=\"far fa-copy\"></i></button>",
               "</div>",
               "<div class=\"titlebar-center\">",
                 "code",
@@ -113,11 +120,11 @@
         els = $(".post pre code");
         $(els).each(function (i, e) {
           // Add button before pre, not code.
-          // $(e).parent().before("<button class=\"copy button\">复制</button>");
+          // $(e).parent().before("<button class=\"copy button\">複製</button>");
           $(e).before([
             "<div class=\"code-titlebar\">",
               "<div class=\"titlebar-left\">",
-                "<button class=\"copy\" aria-label=\"复制\"><i class=\"far fa-copy\"></i></button>",
+                "<button class=\"copy\" aria-label=\"複製\"><i class=\"far fa-copy\"></i></button>",
               "</div>",
               "<div class=\"titlebar-center\">",
                 "code",
@@ -171,7 +178,7 @@
       
     </div>
     <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切換導航欄"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
         <li role="menuitem"><a href="/"><i class="fas fa-home"></i><span class="menu-text">首页</span></a></li>
@@ -524,7 +531,7 @@
     
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div><i class="fas fa-list-ol"></i>文章目錄</div>
       <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-1"><a class="list-group-item toc-link" href="#AI-Pentest-Agent-%E6%9E%B6%E6%9E%84%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A"><span class="toc-text">AI Pentest Agent 架构分析报告</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%B8%80%E3%80%81%E9%98%B2%E6%AD%A2%E7%81%BE%E9%9A%BE%E6%80%A7%E9%81%97%E5%BF%98%EF%BC%88Catastrophic-Forgetting-Prevention%EF%BC%89"><span class="toc-text">一、防止灾难性遗忘（Catastrophic Forgetting Prevention）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">1.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-2-%E5%A4%9A%E5%B1%82%E9%98%B2%E9%81%97%E5%BF%98%E6%9E%B6%E6%9E%84"><span class="toc-text">1.2 多层防遗忘架构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E6%8C%81%E4%B9%85%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87%E5%AF%B9%E8%B1%A1%EF%BC%88Persistent-Context-Objects%EF%BC%89"><span class="toc-text">第一层：持久化上下文对象（Persistent Context Objects）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E6%99%BA%E8%83%BD%E4%B8%8A%E4%B8%8B%E6%96%87%E5%8E%8B%E7%BC%A9%EF%BC%88LLM-based-Context-Compression%EF%BC%89"><span class="toc-text">第二层：智能上下文压缩（LLM-based Context Compression）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9AChromaDB-%E5%90%91%E9%87%8F%E7%9F%A5%E8%AF%86%E5%BA%93%EF%BC%88Long-term-Memory%EF%BC%89"><span class="toc-text">第三层：ChromaDB 向量知识库（Long-term Memory）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E7%AC%AC%E5%9B%9B%E5%B1%82%EF%BC%9ASTE-%E7%BB%8F%E9%AA%8C%E6%8F%90%E5%8F%96%EF%BC%88Strategy-Tactics-Example%EF%BC%89"><span class="toc-text">第四层：STE 经验提取（Strategy-Tactics-Example）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#1-3-%E4%BF%A1%E6%81%AF%E6%B5%81%E8%BD%AC%E9%97%AD%E7%8E%AF"><span class="toc-text">1.3 信息流转闭环</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%BA%8C%E3%80%81%E9%80%BB%E8%BE%91%E6%96%AD%E5%B1%82%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88Logic-Gap-Resolution%EF%BC%89"><span class="toc-text">二、逻辑断层解决方案（Logic Gap Resolution）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">2.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-2-P-E-R-%E5%8D%8F%E4%BD%9C%E6%9E%B6%E6%9E%84"><span class="toc-text">2.2 P-E-R 协作架构</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-3-%E5%88%86%E5%B1%82%E5%A4%B1%E8%B4%A5%E5%BD%92%E5%9B%A0%EF%BC%88L0-L5-Failure-Attribution%EF%BC%89"><span class="toc-text">2.3 分层失败归因（L0-L5 Failure Attribution）</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-4-Reflector-%E7%9A%84-VETO-%E6%9D%83%E5%8A%9B"><span class="toc-text">2.4 Reflector 的 VETO 权力</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-5-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AD%E7%8E%AF"><span class="toc-text">2.5 动态规划闭环</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#2-6-%E9%80%BB%E8%BE%91%E6%96%AD%E5%B1%82%E6%B6%88%E9%99%A4%E7%9A%84%E5%AE%8C%E6%95%B4%E9%93%BE%E6%9D%A1"><span class="toc-text">2.6 逻辑断层消除的完整链条</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%B8%89%E3%80%81%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E9%98%B2%E6%B2%89%E8%BF%B7%E6%9C%BA%E5%88%B6%EF%BC%88Anti-Addiction-Loop-Prevention%EF%BC%89"><span class="toc-text">三、命令执行防沉迷机制（Anti-Addiction &#x2F; Loop Prevention）</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-1-%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-text">3.1 问题定义</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-2-%E4%B8%89%E5%A4%A7%E9%98%B2%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="toc-text">3.2 三大防护机制</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%B8%80%EF%BC%9ASequenceMatcher-%E7%9B%B8%E4%BC%BC%E5%BA%A6%E6%A3%80%E6%B5%8B"><span class="toc-text">机制一：SequenceMatcher 相似度检测</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%BA%8C%EF%BC%9A%E6%8C%87%E6%95%B0%E9%80%80%E9%81%BF%E9%87%8D%E8%AF%95%EF%BC%88Exponential-Backoff-with-Jitter%EF%BC%89"><span class="toc-text">机制二：指数退避重试（Exponential Backoff with Jitter）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#%E6%9C%BA%E5%88%B6%E4%B8%89%EF%BC%9A%E5%BC%82%E6%AD%A5%E8%B6%85%E6%97%B6%E6%8E%A7%E5%88%B6"><span class="toc-text">机制三：异步超时控制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-3-%E5%9C%A8-Executor-%E4%B8%AD%E7%9A%84%E9%9B%86%E6%88%90"><span class="toc-text">3.3 在 Executor 中的集成</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#3-4-%E9%98%B2%E6%8A%A4%E5%B1%82%E6%AC%A1%E6%80%BB%E7%BB%93"><span class="toc-text">3.4 防护层次总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E5%9B%9B%E3%80%81Meta-Tooling-%E5%B1%82%E5%AE%9E%E7%8E%B0"><span class="toc-text">四、Meta-Tooling 层实现</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-1-%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-text">4.1 设计理念</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-2-%E6%9E%B6%E6%9E%84%E6%A6%82%E8%A7%88"><span class="toc-text">4.2 架构概览</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-3-MCP-Server-%E4%BD%9C%E4%B8%BA%E4%B8%AD%E9%97%B4%E5%B1%82"><span class="toc-text">4.3 MCP Server 作为中间层</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-4-%E4%BA%94%E5%A4%A7-Meta-Tooling-%E7%BB%84%E4%BB%B6"><span class="toc-text">4.4 五大 Meta-Tooling 组件</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-1-PythonExecutor%EF%BC%88%E4%BB%A3%E7%A0%81%E6%89%A7%E8%A1%8C%E6%B2%99%E7%AE%B1%EF%BC%89"><span class="toc-text">4.4.1 PythonExecutor（代码执行沙箱）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-2-BrowserAutomation%EF%BC%88%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%89"><span class="toc-text">4.4.2 BrowserAutomation（浏览器自动化）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-3-Terminal%EF%BC%88%E7%BB%88%E7%AB%AF%E4%BC%9A%E8%AF%9D%E7%AE%A1%E7%90%86%EF%BC%89"><span class="toc-text">4.4.3 Terminal（终端会话管理）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-4-Proxy%EF%BC%88HTTP-%E6%B5%81%E9%87%8F%E4%BB%A3%E7%90%86%EF%BC%89"><span class="toc-text">4.4.4 Proxy（HTTP 流量代理）</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#4-4-5-Recon-Tools%EF%BC%88%E4%BE%A6%E5%AF%9F%E5%B7%A5%E5%85%B7%E9%9B%86%EF%BC%89"><span class="toc-text">4.4.5 Recon Tools（侦察工具集）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-5-%E5%B7%A5%E5%85%B7%E6%89%A7%E8%A1%8C%E7%9A%84%E9%9A%94%E7%A6%BB%E4%BF%9D%E9%9A%9C"><span class="toc-text">4.5 工具执行的隔离保障</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#4-6-Meta-Tooling-%E5%B1%82%E7%9A%84%E5%AE%89%E5%85%A8%E8%BE%B9%E7%95%8C"><span class="toc-text">4.6 Meta-Tooling 层的安全边界</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#%E4%BA%94%E3%80%81%E6%80%BB%E7%BB%93"><span class="toc-text">五、总结</span></a></li></ol></li></ol></div>
     </div>
     
@@ -532,7 +539,7 @@
     
     <hr>
     <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>社交链接</p></div>
+      <div><i class="far fa-address-card"></i>社交鏈接</p></div>
       <ul>
         
         <li><i class="fas fa-envelope"></i><a href="mailto:gintvt1314@gmail.com" target="_blank">E-Mail</a></li>
@@ -547,7 +554,7 @@
     
     <hr>
     <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>友情链接</div>
+      <div><i class="fas fa-link"></i>友情鏈接</div>
       <ul>
         
         <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
@@ -571,7 +578,7 @@
 <footer id="footer" class="footer" style="background: #FF0000;">
   <div class="container">
     <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到頂部"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -580,7 +587,7 @@
         </div>
         
         <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站點訪問量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站點用戶數" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="頁面訪問量" aria-hidden="false"></span></span>
         </div>
         
       </div>

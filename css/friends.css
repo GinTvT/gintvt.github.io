@@ -31,38 +31,48 @@
 
 .friends-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 }
 
 .friend-card {
   display: flex;
   align-items: center;
-  gap: 15px;
-  padding: 15px 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  gap: 18px;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
   text-decoration: none;
-  border: 1px solid #f0f0f0;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .friend-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  border-color: #66b3ff;
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(102, 179, 255, 0.2);
+  border-color: rgba(102, 179, 255, 0.3);
 }
 
 .friend-avatar {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
-  background: #f5f5f5;
-  border: 2px solid #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 3px solid #ffffff;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    0 0 0 4px rgba(102, 179, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.friend-card:hover .friend-avatar {
+  box-shadow: 
+    0 6px 20px rgba(102, 179, 255, 0.3),
+    0 0 0 4px rgba(102, 179, 255, 0.2);
+  transform: scale(1.05);
 }
 
 .friend-avatar img {
@@ -73,7 +83,7 @@
 }
 
 .friend-card:hover .friend-avatar img {
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 .friend-info {
@@ -82,22 +92,24 @@
 }
 
 .friend-name {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: #333;
-  margin: 0 0 5px 0;
+  color: #2c3e50;
+  margin: 0 0 6px 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.3s ease;
 }
 
 .friend-desc {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.9rem;
+  color: #7f8c8d;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  line-height: 1.4;
 }
 
 .friend-card:hover .friend-name {
@@ -112,20 +124,25 @@
   }
   
   .friend-card {
-    padding: 12px 15px;
+    padding: 15px 20px;
+    gap: 15px;
   }
   
   .friend-avatar {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+    border-width: 2px;
+    box-shadow: 
+      0 3px 10px rgba(0, 0, 0, 0.12),
+      0 0 0 3px rgba(102, 179, 255, 0.1);
   }
   
   .friend-name {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
   
   .friend-desc {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -140,12 +157,12 @@
   }
   
   .friend-card {
-    background: #2a2a2a;
-    border-color: #3a3a3a;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    border-color: rgba(255, 255, 255, 0.05);
   }
   
   .friend-card:hover {
-    border-color: #66b3ff;
+    border-color: rgba(102, 179, 255, 0.4);
   }
   
   .friend-name {
@@ -153,11 +170,20 @@
   }
   
   .friend-desc {
-    color: #888;
+    color: #999;
   }
   
   .friend-avatar {
-    background: #3a3a3a;
+    background: linear-gradient(135deg, #3a3a3a 0%, #2d2d2d 100%);
     border-color: #2a2a2a;
+    box-shadow: 
+      0 4px 12px rgba(0, 0, 0, 0.3),
+      0 0 0 4px rgba(102, 179, 255, 0.15);
+  }
+  
+  .friend-card:hover .friend-avatar {
+    box-shadow: 
+      0 6px 20px rgba(102, 179, 255, 0.25),
+      0 0 0 4px rgba(102, 179, 255, 0.2);
   }
 }

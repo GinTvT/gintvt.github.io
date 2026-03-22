@@ -196,3 +196,35 @@
     background: #3a3a3a;
   }
 }
+
+/* 页面底部装饰 */
+.friends-page::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to top, 
+    rgba(255, 107, 107, 0.05) 0%,
+    rgba(255, 150, 150, 0.03) 50%,
+    transparent 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.friends-page .post-footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px dashed rgba(255, 107, 107, 0.2);
+  text-align: center;
+}
+
+.friends-page .post-footer::before {
+  content: '✦';
+  display: block;
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}

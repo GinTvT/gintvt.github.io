@@ -74,20 +74,20 @@
 }
 
 .flink-item-icon {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   margin: 0 auto 12px;
   border-radius: 50%;
   overflow: hidden;
   background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f0 100%);
-  border: 3px solid #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
 .flink-list-item:hover .flink-item-icon {
-  transform: rotate(360deg) scale(1.1);
-  box-shadow: 0 6px 20px rgba(73, 177, 245, 0.3);
+  transform: rotate(360deg) scale(1.05);
+  box-shadow: 0 4px 15px rgba(73, 177, 245, 0.3);
 }
 
 .flink-item-icon img {
@@ -138,8 +138,8 @@
   }
   
   .flink-item-icon {
-    width: 70px;
-    height: 70px;
+    width: 55px;
+    height: 55px;
   }
   
   .flink-item-name {
@@ -157,8 +157,8 @@
   }
   
   .flink-item-icon {
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
   }
 }
 

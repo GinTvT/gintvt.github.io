@@ -58,14 +58,20 @@
   flex-shrink: 0;
   width: 70px;
   height: 70px;
+  min-width: 70px;
+  min-height: 70px;
   border-radius: 50%;
   overflow: hidden;
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  background: #f0f4f8;
   border: 3px solid #ffffff;
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.15),
     0 0 0 4px rgba(102, 179, 255, 0.1);
   transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .friend-card:hover .friend-avatar {
@@ -78,12 +84,15 @@
 .friend-avatar img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.3s ease;
+  display: block;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
 }
 
 .friend-card:hover .friend-avatar img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .friend-info {
@@ -131,6 +140,8 @@
   .friend-avatar {
     width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
     border-width: 2px;
     box-shadow: 
       0 3px 10px rgba(0, 0, 0, 0.12),

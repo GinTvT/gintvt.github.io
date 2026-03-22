@@ -1,230 +1,202 @@
-/* 朋友圈页面样式 - 最终完美版 */
+/* 朋友圈页面样式 - 完整复刻版 */
 .friends-page .post-main {
   padding: 20px;
 }
 
-.friends-container {
+/* 朋友圈容器 */
+.flink {
   margin-top: 30px;
 }
 
-.friends-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.friends-header i {
-  color: #ff6b6b;
-  font-size: 1.3rem;
-}
-
-.friends-desc {
-  color: #666;
-  font-size: 0.95rem;
-  margin-bottom: 30px;
-  padding-left: 5px;
-}
-
-.friends-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
-}
-
-.friend-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.flink-desc {
+  margin: 1rem 0;
+  padding: 10px;
+  background: linear-gradient(135deg, rgba(73, 177, 245, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
+  border-radius: 8px;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.8;
   text-align: center;
-  padding: 25px 20px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(73, 177, 245, 0.2);
+}
+
+.flink-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+}
+
+.flink-list-item {
+  width: calc(25% - 20px);
+  margin: 10px;
   transition: all 0.3s ease;
+}
+
+.flink-list-item a {
+  display: block;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   text-decoration: none;
-  border: 1px solid #f0f0f0;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
 }
 
-.friend-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  border-color: rgba(255, 107, 107, 0.2);
+.flink-list-item a::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(73, 177, 245, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
 }
 
-.friend-avatar {
+.flink-list-item a:hover::before {
+  opacity: 1;
+  transform: rotate(45deg) translate(30%, 30%);
+}
+
+.flink-list-item:hover {
+  transform: translateY(-5px);
+}
+
+.flink-list-item:hover a {
+  box-shadow: 0 8px 25px rgba(73, 177, 245, 0.2);
+  border-color: rgba(73, 177, 245, 0.3);
+}
+
+.flink-item-icon {
   width: 80px;
   height: 80px;
-  min-width: 80px;
-  min-height: 80px;
+  margin: 0 auto 12px;
   border-radius: 50%;
   overflow: hidden;
-  background: #f5f5f5;
-  margin-bottom: 12px;
+  background: linear-gradient(135deg, #e8f4f8 0%, #d4e9f0 100%);
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.friend-card:hover .friend-avatar {
-  transform: scale(1.05);
+.flink-list-item:hover .flink-item-icon {
+  transform: rotate(360deg) scale(1.1);
+  box-shadow: 0 6px 20px rgba(73, 177, 245, 0.3);
 }
 
-.friend-avatar img {
+.flink-item-icon img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  display: block;
+  transition: all 0.3s ease;
 }
 
-.friend-info {
-  width: 100%;
-}
-
-.friend-name {
+.flink-item-name {
   font-size: 1.1rem;
   font-weight: 600;
   color: #333;
-  margin: 0 0 6px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 6px;
   transition: color 0.3s ease;
 }
 
-.friend-desc {
-  font-size: 0.8rem;
-  color: #999;
-  margin: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 1.4;
+.flink-list-item:hover .flink-item-name {
+  color: #49b1f5;
 }
 
-.friend-card:hover .friend-name {
-  color: #ff6b6b;
+.flink-item-desc {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: color 0.3s ease;
+}
+
+.flink-list-item:hover .flink-item-desc {
+  color: #666;
 }
 
 /* 响应式适配 */
+@media (max-width: 1200px) {
+  .flink-list-item {
+    width: calc(33.333% - 20px);
+  }
+}
+
 @media (max-width: 768px) {
-  .friends-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+  .flink-list-item {
+    width: calc(50% - 20px);
   }
   
-  .friend-card {
-    padding: 20px 15px;
+  .flink-item-icon {
+    width: 70px;
+    height: 70px;
   }
   
-  .friend-avatar {
-    width: 65px;
-    height: 65px;
-    min-width: 65px;
-    min-height: 65px;
-    margin-bottom: 10px;
-  }
-  
-  .friend-name {
+  .flink-item-name {
     font-size: 1rem;
   }
   
-  .friend-desc {
-    font-size: 0.75rem;
+  .flink-item-desc {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  .friends-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+  .flink-list-item {
+    width: 100%;
   }
   
-  .friend-card {
-    padding: 15px 10px;
-  }
-  
-  .friend-avatar {
-    width: 55px;
-    height: 55px;
-    min-width: 55px;
-    min-height: 55px;
-  }
-  
-  .friend-name {
-    font-size: 0.9rem;
-  }
-  
-  .friend-desc {
-    font-size: 0.7rem;
+  .flink-item-icon {
+    width: 65px;
+    height: 65px;
   }
 }
 
 /* 深色模式适配 */
 @media (prefers-color-scheme: dark) {
-  .friends-header {
-    color: #e0e0e0;
+  .flink-desc {
+    background: linear-gradient(135deg, rgba(73, 177, 245, 0.15) 0%, rgba(255, 107, 107, 0.15) 100%);
+    color: #ccc;
+    border-color: rgba(73, 177, 245, 0.3);
   }
   
-  .friends-desc {
-    color: #aaa;
-  }
-  
-  .friend-card {
+  .flink-list-item a {
     background: #2a2a2a;
-    border-color: #3a3a3a;
+    border-color: rgba(255, 255, 255, 0.05);
   }
   
-  .friend-card:hover {
-    border-color: rgba(255, 107, 107, 0.3);
+  .flink-list-item:hover a {
+    border-color: rgba(73, 177, 245, 0.4);
   }
   
-  .friend-name {
+  .flink-item-name {
     color: #e0e0e0;
   }
   
-  .friend-desc {
+  .flink-list-item:hover .flink-item-name {
+    color: #49b1f5;
+  }
+  
+  .flink-item-desc {
     color: #888;
   }
   
-  .friend-avatar {
-    background: #3a3a3a;
+  .flink-list-item:hover .flink-item-desc {
+    color: #aaa;
   }
-}
-
-/* 页面底部装饰 */
-.friends-page::after {
-  content: '';
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 300px;
-  background: linear-gradient(to top, 
-    rgba(255, 107, 107, 0.05) 0%,
-    rgba(255, 150, 150, 0.03) 50%,
-    transparent 100%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-.friends-page .post-footer {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px dashed rgba(255, 107, 107, 0.2);
-  text-align: center;
-}
-
-.friends-page .post-footer::before {
-  content: '✦';
-  display: block;
-  color: #ff6b6b;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  opacity: 0.6;
+  
+  .flink-item-icon {
+    background: linear-gradient(135deg, #3a4a5a 0%, #2d3d4d 100%);
+    border-color: #2a2a2a;
+  }
 }

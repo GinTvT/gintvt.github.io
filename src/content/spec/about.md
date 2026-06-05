@@ -1,14 +1,7 @@
 # 关于
 
-Web安全研究员，专注于渗透测试、漏洞挖掘与安全工具开发。
+即使一个行走在漫漫星海边缘的小人物，也可以在互联网上拥有属于自己的一片避风港。
 
-## 技术方向
+So my friend, where's your harbor? **This blog is my safe haven.**
 
-- Web 应用安全测试
-- 红队基础设施
-- 安全工具开发
-- 逆向工程
-
-## 联系
-
-::github{repo="gintvt"}
+[你好，世界。](/posts/你好世界/)

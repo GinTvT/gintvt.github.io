@@ -87,13 +87,5 @@
     "tsx": "^4.19.0",
     "postcss-nesting": "^13.0.2",
     "tailwindcss": "^4.3.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp",
-      "esbuild",
-      "swup",
-      "workerd"
-    ]
   }
 }

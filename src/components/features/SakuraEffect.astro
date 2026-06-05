@@ -28,7 +28,8 @@ const config = sakuraConfig;
 				cxt.translate(this.x, this.y);
 				cxt.rotate(this.r);
 				cxt.globalAlpha = this.a;
-				cxt.drawImage(this.img, 0, 0, 40 * this.s, 40 * this.s);
+				const petalSize = 50 * this.s;
+				cxt.drawImage(this.img, -petalSize / 2, -petalSize / 2, petalSize, petalSize);
 				cxt.restore();
 			}
 

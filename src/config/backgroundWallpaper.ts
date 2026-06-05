@@ -62,7 +62,14 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
-			subtitle: ["Security Research & Dev"],
+			subtitle: [
+				"Security Research & Dev",
+				"某天，我也是你轻描淡写的那一页。",
+				"我们还剩下多少个明天。",
+				"生活中总是要有些淤青。",
+				"你我的缘，仓促像一场大雨。",
+				"浮生若梦，为欢几何。",
+			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
 			typewriter: {

@@ -33,7 +33,7 @@ export const friendsConfig: FriendLink[] = [
     },
     {
         title: "Maododo",
-        imgurl: "https://cdn.jsdelivr.net/gh/sured4rag0n/PicGo-Sured4rag0n@main//%E6%AF%9B%E8%B1%86%E8%B1%86.jpg",
+        imgurl: "https://ghbbhc.github.io/images/ghbbhc.jpg",
         desc: "你需要努力",
         siteurl: "https://ghbbhc.github.io/",
         tags: ["Blog"],

@@ -32,9 +32,7 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: |
-          pnpm config set onlyBuiltDependencies "sharp esbuild swup workerd"
-          pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         run: pnpm build
